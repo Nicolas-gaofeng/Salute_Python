@@ -1003,7 +1003,7 @@ gl_num = 10
 
 ### 2.5 变量
 
-[程序练习](https://github.com/Nicolas-gaofeng/Salute_Python/blob/main/python_basic_02/variable_python_05/variable_python)
+[程序练习](https://github.com/Nicolas-gaofeng/Salute_Python/blob/main/python_basic_02/variable_python_05/variable_python.py)
 
 程序就是用来处理数据的，而变量就是用来存储数据的
 
@@ -1211,11 +1211,19 @@ print("格式化字符串" % (变量1, 变量2...))
 
 ##### 2.6.2.1 字符串
 
+[程序练习]()
+
 ##### 2.6.2.2 列表
+
+[程序练习]()
 
 ##### 2.6.2.3 元组
 
+[程序练习]()
+
 ##### 2.6.2.4 字典
+
+[程序练习]()
 
 #### 2.6.3 可变和不可变类型
 
