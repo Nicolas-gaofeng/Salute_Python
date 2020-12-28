@@ -9,21 +9,6 @@
 """
 
 
-# =========================================  变量 =========================================
-# 定义变量会有：id(唯一标识号）,type(变量类型）,value(变量值）
-# 1.id相同，意味着type和value必定相同 is比较id
-# 2.value相同type肯定相同，但id可能不同 ==
-# flag = True
-flag = False
-if flag:
-    x = "sadasfgdafsdaaaaasadasfgdafsdaaaaasadasfgdafsdaaaaasadasfgdafsdaaaaa"
-    y = "sadasfgdafsdaaaaasadasfgdafsdaaaaasadasfgdafsdaaaaasadasfgdafsdaaaaa"
-    print(x, id(x), type(x))
-    print(y, id(y), type(y))
-    print(x == y)
-    print(x is y)
-
-
 # =========================================  常量 =========================================
 # 常量即不变的量 如π、e
 # 全部用大写字母表示
@@ -39,6 +24,10 @@ if flag:
 # 赋值方式1：通过等号自右向左进行赋值
 # 赋值方式2：增量赋值
 # 赋值方式3：打包赋值
+
+# 定义变量会有：id(唯一标识号）,type(变量类型）,value(变量值）
+# 1.id相同，意味着type和value必定相同 is比较id
+# 2.value相同type肯定相同，但id可能不同 ==
 # flag = True
 flag = False
 if flag:
@@ -52,7 +41,41 @@ if flag:
     v, u = u, v
     print(u, v)
 
+    x = "sadasfgdafsdaaaaasadasfgdafsdaaaaasadasfgdafsdaaaaasadasfgdafsdaaaaa"
+    y = "sadasfgdafsdaaaaasadasfgdafsdaaaaasadasfgdafsdaaaaasadasfgdafsdaaaaa"
+    print(x, id(x), type(x))
+    print(y, id(y), type(y))
+    print(x == y)
+    print(x is y)
 
+
+# =========================================  变量的类型 =========================================
+# Python属于强类型的动态脚本语言：不允许不同类型相加动态：
+# 定义变量不用数据类型声明，且确定一个变量的类型是第一次给他赋值的时候
+# 在 Python 中，定义变量时是不需要指定变量的类型的
+# 在运行的时候，Python 解释器，会根据赋值语句等号右侧的数据，自动推导出变量中保存数据的准确类型
+# flag = True
+flag = False
+if flag:
+    """
+    姓名：小明
+    年龄：18 岁
+    性别：是男生
+    身高：1.75 米
+    体重：75.0 公斤
+    """
+    # str 表示是一个字符串类型
+    name = "小明"
+    # int 表示是一个整数类型
+    age = 18
+    # bool 表示是一个布尔类型，真 True 或者假 False
+    gender = False  # 不是
+    # float 表示是一个小数类型，浮点数
+    height = 1.75
+    weight = 75
+    print(name)
+
+    
 # =========================================  变量的输入 =========================================
 # 使用解释器执行，如果要输出变量的内容，必须要要使用 print 函数
 # 如果要获取用户在 键盘 上的输入信息，需要使用到 input 函数
