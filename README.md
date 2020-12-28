@@ -593,7 +593,7 @@ QQ 这个程序是怎么保存用户的 QQ号码 和 QQ 密码 的？
 
 ### 2.1 第一个python程序
 
-[程序练习](https://github.com/Nicolas-gaofeng/Salute_Python/blob/main/02_python_basic/01_first_python/HelloWorld.py)
+[程序练习](https://github.com/Nicolas-gaofeng/Salute_Python/blob/main/python_basic_02/first_python_01/HelloWorld.py)
 
 - 新建 HelloPython.py文件
 - 使用 gedit 编辑 01-HelloPython.py 并且输入以下内容：
@@ -618,7 +618,7 @@ print 函数的作用，可以把 "" 内部的内容，输出到屏幕上
 
 ### 2.2 认识Bug
 
-[程序练习](https://github.com/Nicolas-gaofeng/Salute_Python/blob/main/02_python_basic/02_debug_python/debug_python.py)
+[程序练习](https://github.com/Nicolas-gaofeng/Salute_Python/blob/main/python_basic_02/debug_python_02/debug_python.py)
 
 关于错误
 
@@ -692,7 +692,7 @@ see http://python.org/dev/peps/pep-0263/ for details
 
 ### 2.3 注释
 
-[程序练习](https://github.com/Nicolas-gaofeng/Salute_Python/blob/main/02_python_basic/03_notes_python/notes_python.py)
+[程序练习](https://github.com/Nicolas-gaofeng/Salute_Python/blob/main/python_basic_02/notes_python_03/notes_python.py)
 
 #### 2.3.1 注释的作用
 
@@ -765,6 +765,134 @@ pycharm下快捷方式：
 ​	快捷键：ctrl+/ 单行注释
 
 ### 2.4 命名规则
+
+[程序练习](https://github.com/Nicolas-gaofeng/Salute_Python/blob/main/python_basic_02/notes_python_03/notes_python.py)
+
+#### 2.4.1 标识符和关键字
+
+##### 2.4.1.1 标识符
+
+标示符就是程序员定义的 变量名、函数名
+
+名字 需要有 见名知义 的效果，见下图：
+
+![img](./image/clip_image001.jpg)
+
+- 标示符可以由 `字母、下划线 和 数字` 组成
+- `不能以数字开头`
+- `不能与关键字重名`
+
+##### 2.4.1.2 关键字
+
+- 关键字 就是在 Python 内部已经使用的标识符
+- 关键字 具有特殊的功能和含义
+- 开发者 不允许定义和关键字相同的名字的标示符
+
+通过以下命令可以查看 Python 中的关键字
+
+```
+import keyword
+print(keyword.kwlist)
+```
+
+- import 关键字 可以导入一个 “工具包”
+- 在 Python 中不同的工具包，提供有不同的工具
+
+#### 2.4.2 变量的命名规则
+
+命名规则 可以被视为一种 惯例，并无绝对与强制 目的是为了 增加代码的识别和可读性
+
+1. 变量名 = 值  : 等号（=）用来给变量赋值 （=）左边是一个变量名 （=）右边是存储在变量中的值
+
+2. 在定义变量时，为了保证代码格式，= 的左右应该各保留一个空格
+
+3. 变量名只能是字母/数字或下划线的任意组合，注意 Python 中的 标识符 是严格 `区分大小写`
+
+   ![](./image/clip_image003.jpg)
+
+4. 变量名的第一个字符不能是数字; 变量名中间不能有空格;  关键字不能作为变量
+
+5. 尽量避免用中文和拼音做变量名
+
+   
+
+##### 2.4.2.1 下划线命名法
+
+在 Python 中，如果 变量名需要由 二个 或 多个单词 组成时，可以按照以下方式命名
+
+​           i.    每个单词都使用小写字母
+
+​           ii.    单词与单词之间使用 _下划线 连接
+
+o  例如：first_name、last_name、qq_number、qq_password
+
+##### 2.4.2.2 驼峰命名法
+
+- 当 变量名 是由二个或多个单词组成时，还可以利用驼峰命名法来命名
+
+- 小驼峰式命名法
+
+- - 第一个单词以小写字母开始，后续单词的首字母大写
+  - 例如：firstName、lastName
+
+- 大驼峰式命名法
+
+- - 每一个单词的首字母都采用大写字母
+  - 例如：FirstName、LastName、CamelCase
+
+![img](./image/clip_image005.jpg)
+
+##### 2.4.2.3 全局变量命名
+
+​	a.全局变量名前应该增加g或者gl的前缀
+
+​	b.如果局部变量的名字和全局变量的名字相同,pycharm会在局部变量下方显示一个灰色的虚线
+
+```
+# 全局变量命名
+gl_num = 10
+```
+
+#### 2.4.3 常量的命名规则
+
+​	a.常量即不变的量 如π、e
+
+​	b.一般放在文件最上面
+
+​	c.全部用大写字母表示
+
+#### 2.4.4 文件的命名规则
+
+​	a. 命名文件名时建议只使用 小写字母、数字 和 下划线
+
+​	b. 文件名不能以数字开始
+
+#### 2.4.5 类的命名规则
+
+​	a.驼峰体:变量名由多个单词组成：单词首字母大写
+
+​	b.单词与单词之间没有下划线
+
+​	c.总使用“cls”作为类方法的第一个参数。
+
+#### 2.4.6 模块的命名规则
+
+​	a.与包的规范同。如mymodule。
+
+​	b.除非有很多字母，尽量不要用下划线
+
+因为很多模块文件存与模块名称一致的类，模块采用小写，类采用首字母大写，这样就能区分开模块和类。
+
+#### 2.4.7 包的命名规则
+
+应该是简短的、小写的名字。如果下划线可以改善可读性可以加入。如mypackage。
+
+#### 2.4.8 函数的命名规则
+
+函数名应该为小写，可以用下划线风格单词以增加可读性。如：myfunction，my_example_function。
+
+总使用“self”作为实例方法的第一个参数。
+如果一个函数的参数名称和保留的关键字冲突，通常使用一个后缀下划线好于使用缩写或奇怪的拼写。
 
 ### 2.5 变量
 
