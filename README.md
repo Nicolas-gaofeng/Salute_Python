@@ -692,6 +692,8 @@ see http://python.org/dev/peps/pep-0263/ for details
 
 ### 2.3 注释
 
+[程序练习](https://github.com/Nicolas-gaofeng/Salute_Python/blob/main/02_python_basic/03_notes_python/notes_python.py)
+
 #### 2.3.1 注释的作用
 
 使用用自己熟悉的语言，在程序中对某些代码进行标注说明，增强程序的可读性
