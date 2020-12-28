@@ -1,6 +1,13 @@
 #!/usz/bin/env python
 # -*- coding:utf-8 -*-
 
+"""
+@file       : debug_python.py
+@author     : zgf
+@brief      : 调试python程序
+@attention  : life is short,I need python
+"""
+
 
 # =========================================  说明 =========================================
 # 鼠标左键点击出现红色圆点代表断点
