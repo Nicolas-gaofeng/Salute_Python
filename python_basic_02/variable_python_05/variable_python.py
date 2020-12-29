@@ -75,7 +75,7 @@ if flag:
     weight = 75
     print(name)
 
-    
+
 # =========================================  变量的输入 =========================================
 # 使用解释器执行，如果要输出变量的内容，必须要要使用 print 函数
 # 如果要获取用户在 键盘 上的输入信息，需要使用到 input 函数
@@ -116,11 +116,13 @@ flag = False
 if flag:
     """定义一个全局变量"""
     num = 10
-    def demo1 ():
+
+    def demo1():
         print(num)
 
-    def demo2 ():
+    def demo2():
         print(num)
+
     demo1()
     demo2()
     print("over")
@@ -154,15 +156,16 @@ if flag:
 flag = False
 if flag:
     num = 10
-    def demo1 ():
+
+    def demo1():
         print("demo1" + "-" * 50)
         # global关键字，告诉Python解释器num是一个全局变量
-        global  num
+        global num
         # 只是定义了一个局部变量，不会修改到全局变量，只是变量名相同而已
         num = 100
         print(num)
 
-    def  demo2 ():
+    def demo2():
         print("demo2" + "-" * 50)
         print(num)
 
