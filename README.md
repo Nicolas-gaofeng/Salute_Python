@@ -1997,11 +1997,11 @@ TypeError: unsupported operand type(s) **for** +: 'int' **and** 'str'
 
 ### 2.9 条件分支结构
 
+[程序练习](https://github.com/Nicolas-gaofeng/Salute_Python/blob/main/python_basic_02/conditional_branching_structure_08/conditional_branching_structure.py)
+
 1. 开发中的应用场景 
 
-生活中的判断几乎是无所不在的，我们每天都在做各种各样的选择，如果这样？如果那样？……
-
-​                               
+生活中的判断几乎是无所不在的，我们每天都在做各种各样的选择，如果这样？如果那样？……                       
 
  ![image-20201229183401858](./image/image-20201229183401858.png)![image-20201229183404900](./image/image-20201229183404900.png)
 
@@ -2115,6 +2115,8 @@ else:
 ```
 
 ### 2.10 循环结构
+
+[程序练习](https://github.com/Nicolas-gaofeng/Salute_Python/blob/main/python_basic_02/Loop_structure_09/Loop_structure.py)
 
 程序的三大流程
 
