@@ -369,9 +369,12 @@ if flag:
 
 
 # =========================================  for循环 - for + else =========================================
+# 要判断某一个字典中是否存在指定的值
+# - 如果存在，提示并且退出循环
+# - 如果不存在，在循环整体结束后，希望得到一个统一的提示
 # 如果for 循环全部执行完毕，没有被break中止，则运行else块
-# flag = True
-flag = False
+flag = True
+# flag = False
 if flag:
     L = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     for i in L:
@@ -390,6 +393,22 @@ if flag:
             break
     else:
         print("产品抽检合格")
+
+    print("查找名片example".center(50,"*"))
+    students = [
+        {"name": "阿土", "age": 20, "gender": True, "height": 1.7, "weight": 75.0},
+        {"name": "小美", "age": 19, "gender": False, "height": 1.6, "weight": 45.0},
+    ]
+    find_name = "阿土"
+    for stu_dict in students:
+        # 判断当前遍历的字典中姓名是否为find_name
+        if stu_dict["name"] == find_name:
+            print("找到了")
+            # 如果已经找到，直接退出循环，就不需要再对后续的数据进行比较
+            break
+    else:
+        print("没有找到")
+    print("循环结束")
 
 
 # ========================================= break =========================================
