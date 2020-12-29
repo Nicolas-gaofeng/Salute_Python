@@ -8,66 +8,43 @@
 @attention  : life is short,I need python
 """
 
-# ========================================= 函数 =========================================
-# 1.提高代码复用性——抽象出来，封装为函数
-# 2、将复杂的大问题分解成一系列小问题，分而治之——模块化设计的思想
-# 3、利于代码的维护和管理
-# 白箱子：输入——处理——输出
-# 三要素：参数、函数体、返回值
-# 函数及其参数的命名参照变量的命名 字母小写及下划线组合 有实际意义
-# 应包含简要阐述函数功能的注释，注释紧跟函数定义后面
-# 函数定义前后各空两行
-# 默认参数赋值等号两侧不需加空格
-# if flag:
-# flag = True
-flag = False
-if flag:
-    pass
 
-
-# ========================================= 函数打印分割线 =========================================
-#
+# ========================================= 函数 - 调用 =========================================
+# 注意：定义好函数之后，只表示这个函数封装了一段代码而已
+# 如果不主动调用函数，函数是不会主动执行的
+# 只有在程序中，主动调用函数，才会让函数执行
 # flag = True
 flag = False
 if flag:
 
     def print_line(char, times):
-
         """打印单行分隔线
-
         :param char: 分隔字符
         :param times: 重复次数
         """
         print(char * times)
 
     def print_lines(char, times):
-
         """打印多行分隔线
-
         :param char: 分隔线使用的分隔字符
         :param times: 分隔线重复的次数
         """
         row = 0
-
         while row < 5:
             print_line(char, times)
-
             row += 1
 
     print_lines("-", 20)
 
 
-# ========================================= 函数快速体验 =========================================
-# 注意：定义好函数之后，之表示这个函数封装了一段代码而已
-# 如果不主动调用函数，函数是不会主动执行的
-# 只有在程序中，主动调用函数，才会让函数执行
-# 打印99乘法表
+# ========================================= 函数 - 调用 =========================================
+# 函数 - 调用
 # flag = True
 flag = False
 if flag:
+    """99乘法表"""
 
     def multiple_table():
-        # 1. 打印 9 行小星星
         row = 1
         while row <= 9:
             col = 1
@@ -79,13 +56,17 @@ if flag:
             print("")
             row += 1
 
+    """阶乘"""
+
     def factoria(n):
         res = 1
         for i in range(1, n + 1):
             res *= i
         return res
 
+    print("打印乘法表".center(50, "*"))
     multiple_table()
+    print("阶乘".center(50, "*"))
     print(factoria(5))
     print(factoria(20))
 
@@ -1388,3 +1369,41 @@ if flag:
 
     def func(l1):
         return l1[1::2]
+
+
+# ========================================= 函数 - 注册 - example =========================================
+# 12，写一个函数完成三次登陆功能：(升级题,两天做完)
+# (1)	用户的用户名密码从一个文件register中取出。
+# (2)	register文件包含多个用户名，密码，用户名密码通过|隔开，每个人的用户名密码占用文件中一行。
+# (3)	完成三次验证，三次验证不成功则登录失败，登录失败返回False。
+# (4)	登陆成功返回True。
+
+
+# 13，再写一个函数完成注册功能：(升级题,两天做完)
+# (1)	用户输入用户名密码注册。
+# (2)	注册时要验证（文件regsiter中）用户名是否存在，如果存在则让其重新输入用户名，如果不存在，则注册成功。
+# (3)	注册成功后，将注册成功的用户名，密码写入regsiter文件，并以 | 隔开。
+# (4)	注册成功后，返回True,否则返回False。
+# flag = True
+flag = False
+if flag:
+
+    def register():
+        while 1:
+            username = input("请输入用户名:").strip()
+            with open(
+                "register",
+                encoding="utf-8",
+            ) as f1:
+                for line in f1:
+                    uname, pwd = line.strip().split("|")  # [诸葛,123]
+                    if username == uname:
+                        print("此用户名已存在，请重新输入")
+                        break
+                else:
+                    password = input("请输入密码:").strip()
+                    with open("register", encoding="utf-8", mode="a") as f2:
+                        f2.write("\n{}|{}".format(username, password))
+                        return True
+
+    register()
