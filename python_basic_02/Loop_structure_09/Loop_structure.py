@@ -2,32 +2,19 @@
 # -*- coding:utf-8 -*-
 
 """
+@file       : Loop_structure.py
 @author     : zgf
-@brief      : 注释
+@brief      : 循环结构
+@attention  : life is short,I need python
 """
 
 
-# ========================================= 重复执行 =========================================
+# ========================================= while循环 - 程序计数 =========================================
+# 打印 5 遍 Hello Python
+# 注意：循环结束后，之前定义的计数器条件的数值是依旧存在的
 # flag = True
 flag = False
 if flag:
-    # 打印 500 遍 Hello Python
-    print("Hello Python")
-    print("Hello Python")
-    print("Hello Python")
-    print("Hello Python")
-    print("Hello Python")
-    print("Hello Python")
-    print("Hello Python")
-    print("Hello Python")
-    print("Hello Python")
-    print("Hello Python")
-
-# ========================================= 第一个while循环 =========================================
-# flag = True
-flag = False
-if flag:
-    # 打印 5 遍 Hello Python
     # 1. 定义一个整数变量，记录循环次数
     i = 1
     # 2. 开始循环
@@ -41,57 +28,35 @@ if flag:
     print("循环结束后，i = %d" % i)
 
 
-# =========================================  while循环-猜测年龄 =========================================
-# while 条件：
-# 循环体
-# 如果条件为真，那么循环体则执行，执行完毕后再次循环，重新判断条件。
-# 如果条件为假，那么循环体不执行，循环终止
+# ========================================= while循环 - 循环输出 =========================================
+# 使用while循环输出1 2 3 4 5 6     8 9 10
 # flag = True
 flag = False
 if flag:
-    age = 18
-    guess_age = int(input("请输入猜测的年龄："))
-    while age != guess_age:
-        if guess_age > age:
-            print("猜大了")
-        elif guess_age < age:
-            print("猜小了")
-        guess_age = int(input("请输入猜测的年龄："))
-    print("猜对了")
+    print("方式一".center(50, "*"))
+    count = 1
+    while count <= 10:
+        if count == 7:
+            count += 1
+            continue
+        print(count)
+        count += 1
 
-    """猜测年龄改写"""
-    age = 18
-    while True:
-        guess_age = int(input("请输入猜测的年龄："))
-        if guess_age > age:
-            print("猜大了")
-        elif guess_age < age:
-            print("猜小了")
-        else:
-            print("猜对了")
-            break
+    print("方式二".center(50, "*"))
+    count = 1
+    while count <= 10:
+        if count != 7:
+            print(count)
+        count += 1
 
-
-# ========================================= while循环-程序计数 =========================================
-# flag = True
-flag = False
-if flag:
-    # 打印 5 遍 Hello Python
-    # 1. 定义一个整数变量，记录循环次数
-    i = 0
-    # 2. 开始循环
-    while i < 3:
-        # 1> 希望在循环内执行的代码
-        print("Hello Python")
-
-        # 2> 处理计数器
-        # i = i + 1
-        i += 1
-    # 3. 观察一下，循环结束后，计数器 i 的数值是多少
-    print("循环结束后，i = %d" % i)
+    print("方式三".center(50, "*"))
+    for i in range(1, 11):
+        if i == 7:
+            continue
+        print(i)
 
 
-# ========================================= while循环-累加求和 =========================================
+# ========================================= while循环 - 循环计算 =========================================
 # flag = True
 flag = False
 if flag:
@@ -110,7 +75,7 @@ if flag:
     print("0~100之间的数字求和结果 = %d" % result)
 
 
-# ========================================= while循环-偶数求和 =========================================
+# ========================================= while循环 - 偶数求和 =========================================
 # flag = True
 flag = False
 if flag:
@@ -134,7 +99,7 @@ if flag:
     print("0~100之间的偶数累加结果 = %d" % result)
 
 
-# ========================================= while循环-奇数求和 =========================================
+# ========================================= while循环 - 奇数求和 =========================================
 # flag = True
 flag = False
 if flag:
@@ -158,33 +123,8 @@ if flag:
     print("0~100之间的奇数累加结果 = %d" % result)
 
 
-# ========================================= while循环-example =========================================
-# 使用while循环输出1 2 3 4 5 6     8 9 10
-# flag = True
-flag = False
-if flag:
-    # 方式一
-    count = 1
-    while count <= 10:
-        if count == 7:
-            count += 1
-            continue
-        print(count)
-        count += 1
-    # 方式二
-    count = 1
-    while count <= 10:
-        if count != 7:
-            print(count)
-        count += 1
-    # 方式三
-    for i in range(1, 11):
-        if i == 7:
-            continue
-        print(i)
-
-
-# ========================================= while循环 - 计算1-2+3-4...+99中除了88以外的所有数的和  =========================================
+# ========================================= while循环 - 循环计算 =========================================
+# 计算1-2+3-4...+99中除了88以外的所有数的和
 # flag = True
 flag = False
 if flag:
@@ -199,6 +139,26 @@ if flag:
             sum += count
         count += 1
     print(count)
+
+
+# =========================================  while循环-猜测年龄 =========================================
+# while 条件：
+# 循环体
+# 如果条件为真，那么循环体则执行，执行完毕后再次循环，重新判断条件。
+# 如果条件为假，那么循环体不执行，循环终止
+# flag = True
+flag = False
+if flag:
+    age = 18
+    while True:
+        guess_age = int(input("请输入猜测的年龄："))
+        if guess_age > age:
+            print("猜大了")
+        elif guess_age < age:
+            print("猜小了")
+        else:
+            print("猜对了")
+            break
 
 
 # =========================================  while循环 - 风向标flag=========================================
@@ -219,15 +179,6 @@ if flag:
             flag = False  # 当诉求得到满足，就让风向变一下
 
     # 例子
-    flag = True
-    while flag:
-        pass
-        while flag:
-            pass
-            while flag:
-                flag = False  # 循环逐层判断，当flag为false时，循环会逐层退出
-
-    # 例子
     """***多层循环使用tag快速跳出循环***"""
     tag = True
     while tag:
@@ -236,6 +187,7 @@ if flag:
             print("22")
             while tag:
                 tag = False
+
 
 # =========================================  while循环 - 死循环 =========================================
 #
@@ -278,43 +230,40 @@ if flag:
         print("循环正常执行完啦")
     print("-----out of while loop-------")
 
+
 # =========================================   while循环 -打印小星星 =========================================
+# 在控制台连续输出五行 *，每一行星号的数量依次递增
+# *
+# **
+# ***
+# ****
+# *****
+# 1. 定义一个计数器变量，从数字1开始，循环会比较方便
 # flag = True
 flag = False
 if flag:
-    # 在控制台连续输出五行 *，每一行星号的数量依次递增
-    # *
-    # **
-    # ***
-    # ****
-    # *****
-
-    # 1. 定义一个计数器变量，从数字1开始，循环会比较方便
     row = 1
-
     # 2. 开始循环
     while row <= 5:
         print("*" * row)
-
         row += 1
 
+
 # =========================================   while循环 -嵌套打印小星星 =========================================
+# 需求
+#
+# 在控制台连续输出五行 *，每一行星号的数量依次递增
+# *
+# **
+# ***
+# ****
+# *****
+# 开发步骤
+# 1> 完成 5 行内容的简单输出
+# 2> 分析每行内部的 * 应该如何处理？
 # flag = True
 flag = False
 if flag:
-    # 需求
-    #
-    # 在控制台连续输出五行 *，每一行星号的数量依次递增
-    # *
-    # **
-    # ***
-    # ****
-    # *****
-    # 开发步骤
-    #
-    # 1> 完成 5 行内容的简单输出
-    # 2> 分析每行内部的 * 应该如何处理？
-
     row = 1
     while row <= 5:
         # 每一行要打印的星星就是和当前的行数是一致的
@@ -338,6 +287,7 @@ if flag:
         print("")
         row += 1
 
+
 # =========================================  while循环 - 九九乘法表 =========================================
 # flag = True
 flag = False
@@ -354,14 +304,6 @@ if flag:
         print("")
         row += 1
 
-# =========================================  while循环 - 删除列表中的特定值 =========================================
-# flag = True
-flag = False
-if flag:
-    pets = ["dog", "cat", "dog", "pig", "goldfish", "rabbit", "cat"]
-    while "cat" in pets:
-        pets.remove("cat")
-    print(pets)
 
 # =========================================  while循环 - example =========================================
 # 将未读书籍列表中书名分别输出后，存入已读书籍列表
@@ -378,32 +320,8 @@ if flag:
     print(have_read)
 
 
-# ========================================= 转义字符 =========================================
-# flag = True
-flag = False
-if flag:
-    # \t 在控制台输出一个 制表符，协助在输出文本时 垂直方向 保持对齐
-    print("1\t2\t3")
-    print("10\t20\t30")
-
-    # \n 在控制台输出一个 换行符
-    print("hello\n python")
-
-    # \" 可以在控制台输出 "
-    print('hello"hello')
-
-
-# =========================================  for循环 - 迭代循环 =========================================
-#
-# flag = True
-flag = False
-if flag:
-    for i in range(10):
-        print(i)
-
-
-# =========================================  for循环 - 迭代循环 =========================================
-#
+# =========================================  for循环 - 迭代遍历 =========================================
+# Python 字典 items() 方法以列表返回可遍历的(键, 值) 元组数组。
 # flag = True
 flag = False
 if flag:
@@ -413,10 +331,18 @@ if flag:
         {"name": "游艇", "price": 20},
         {"name": "美女", "price": 998},
     ]
-    print("商品具体展示".center(20, "*"))
+    print("商品具体展示".center(50, "*"))
     for index, i in enumerate(goods):
         print("{}\t{}\t{}".format(index, i["name"], i["price"]))
-    print("*" * 25)
+    print("*" * 50)
+
+    print("items()".center(50, "*"))
+    dir = {1: "kobe", 2: "LBJ", 3: "CP3", 4: "TDK"}
+    print(dir.items())
+    for key, value in dir.items():
+        print(key, value)
+    else:
+        print("ending")
 
 
 # =========================================  for循环 - range遍历数组 =========================================
@@ -424,9 +350,11 @@ if flag:
 # flag = True
 flag = False
 if flag:
+    for i in range(10):
+        print(i)
     l1 = ["alex", "alex", "taibai", "egon", "景女神", "文周老师", "日天"]
     for i in range(0, len(l1)):
-        print(i)
+        print(i, l1[i])
 
 
 # =========================================  for循环 - 计算0-9的和 =========================================
@@ -464,38 +392,21 @@ if flag:
         print("产品抽检合格")
 
 
-# =========================================  for循环 - 遍历字典 =========================================
-# Python 字典 items() 方法以列表返回可遍历的(键, 值) 元组数组。
-# flag = True
-flag = False
-if flag:
-    dir = {1: "kobe", 2: "LBJ", 3: "CP3", 4: "TDK"}
-    print(dir.items())
-    for key, value in dir.items():
-        print(key, value)
-    else:
-        print("ending")
-
-
 # ========================================= break =========================================
 # break用于退出本层循环
 # flag = True
 flag = False
 if flag:
     i = 0
-
     while i < 10:
-
         # break 某一条件满足时，退出循环，不再执行后续重复的代码
         # i == 3
         if i == 3:
             break
-
         print(i)
-
         i += 1
-
     print("over")
+
 
 # ========================================= continue =========================================
 # 结束本次循环
