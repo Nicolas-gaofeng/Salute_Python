@@ -18,13 +18,29 @@
 # flag = True
 flag = False
 if flag:
-    # 1. 定义年龄变量
-    age = 18
-    # 2. 判断是否满 18 岁
+    # 练习1: 定义一个整数变量 age，编写代码判断年龄是否正确
+    age = 12
+    # 要求人的年龄在 0-120 之间
+    """
+    10000
+    age >= 0 or age <= 120
+    age >= 0 and age <= 120
+    """
+    if age >= 0 and age <= 120:
+        print("年龄正确")
+    else:
+        print("年龄不正确")
+    # 输入用户年龄
+    age = int(input("请输入年龄："))
+    # 判断是否满 18 岁 （>=）
     if age >= 18:
-        print("可以进网吧嗨皮……")
-    # 3. 思考！ 无论条件是否满足都会执行
-    print("这句代码什么时候执行?")
+        # 如果满 18 岁，允许进网吧嗨皮
+        print("你已经成年，欢迎来网吧嗨皮")
+    else:
+        # 如果未满 18 岁，提示回家写作业
+        print("你还没有成年，请回家写作业吧")
+    # 这句代码无论条件是否成立都会执行！
+    print("这句代码什么时候执行？")
 
 
 # =========================================  if else分支语句 =========================================
@@ -139,6 +155,111 @@ if flag:
         print("bad")
 
 
+# =========================================   流程控制 - if - elif =========================================
+#  写一个根据当日日期来说明是否上班的程序，请用户输入日期来获取
+#     如果:今天是Monday,那么:上班
+#     如果:今天是Tuesday,那么:上班
+#     如果:今天是Wednesday,那么:上班
+#     如果:今天是Thursday,那么:上班
+#     如果:今天是Friday,那么:上班
+#     如果:今天是Saturday,那么:出去浪
+#     如果:今天是Sunday,那么:出去浪
+# flag = True
+flag = False
+if flag:
+    # 方式一：
+    today = input(">>: ")
+    if today == "Monday":
+        print("上班")
+    elif today == "Tuesday":
+        print("上班")
+    elif today == "Wednesday":
+        print("上班")
+    elif today == "Thursday":
+        print("上班")
+    elif today == "Friday":
+        print("上班")
+    elif today == "Saturday":
+        print("出去浪")
+    elif today == "Sunday":
+        print("出去浪")
+    else:
+        print(
+            """必须输入其中一种:
+        Monday
+        Tuesday
+        Wednesday
+        Thursday
+        Friday
+        Saturday
+        Sunday
+        """
+        )
+    # 方式二：
+    today = input(">>: ")
+    if today == "Saturday" or today == "Sunday":
+        print("出去浪")
+    elif (
+        today == "Monday"
+        or today == "Tuesday"
+        or today == "Wednesday"
+        or today == "Thursday"
+        or today == "Friday"
+    ):
+        print("上班")
+    else:
+        print(
+            """必须输入其中一种:
+        Monday
+        Tuesday
+        Wednesday
+        Thursday
+        Friday
+        Saturday
+        Sunday
+        """
+        )
+    # 方式三：
+    today = input(">>: ")
+    if today in ["Saturday", "Sunday"]:
+        print("出去浪")
+    elif today in ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]:
+        print("上班")
+    else:
+        print(
+            """必须输入其中一种:
+        Monday
+        Tuesday
+        Wednesday
+        Thursday
+        Friday
+        Saturday
+        Sunday
+        """
+        )
+
+
+# =========================================  流程控制 - example - 判断元素是否大于10 =========================================
+# 判断元素是否大于10
+# flag = True
+flag = False
+if flag:
+
+    def all_numbers_gt_10(numbers):
+        # 仅当序列中所有数字大于10时，返回True
+        if (
+            not numbers
+        ):  # 如果numbers为空，因为在这里numbers代表一个列表，[1,2,3...]这种格式，在列表中，空列表[]为False, 这行代码就用来判断numbers是否为空，为空就返回False
+            return False
+        for n in numbers:  # 通历numbers中的每一个元素
+            if n <= 10:
+                return False  # 如果有元素小于等于10,该函数马上返回False
+        return True  # 如果numbers列表中的所有元素都大于10,那么返回True
+
+    def all_numbers_gt_10_2(numbers):
+        return bool(numbers) and all(n > 10 for n in numbers)
+
+
 # =========================================  石头剪刀布 =========================================
 # 1. 从控制台输入要出的拳     —— 石头（1）／剪刀（2）／布（3）
 # 2. 电脑 随机 出拳 —— 先假定电脑只会出石头，完成整体代码功能
@@ -146,13 +267,32 @@ if flag:
 # flag = True
 flag = False
 if flag:
+    # 导入随机工具包
+    # 注意：在导入工具包的时候，应该将导入的语句，放在文件的顶部
+    # 因为，这样可以方便下方的代码，在任何需要的时候，使用工具包中的工具
+    import random
+
+    # 从控制台输入要出的拳 —— 石头（1）／剪刀（2）／布（3）
+    player = int(input("请输入您要出的拳 石头（1）／剪刀（2）／布（3）："))
+    # 电脑 随机 出拳 —— 先假定电脑只会出石头，完成整体代码功能
+    computer = random.randint(1, 3)
+    print("玩家选择的拳头是 %d - 电脑出的拳是 %d" % (player, computer))
+    # 比较胜负
+    # 1	石头 胜 剪刀
+    # 2	剪刀 胜 布
+    # 3	布 胜 石头
+    # if (()
+    #        or ()
+    #        or ()):
     if (
         (player == 1 and computer == 2)
         or (player == 2 and computer == 3)
         or (player == 3 and computer == 1)
     ):
-        print("噢耶！！！电脑弱爆了！！！")
+        print("欧耶，电脑弱爆了！")
+    # 平局
     elif player == computer:
-        print("心有灵犀，再来一盘！")
+        print("真是心有灵犀啊，再来一盘")
+    # 其他的情况就是电脑获胜
     else:
-        print("不行，我要和你决战到天亮！")
+        print("不服气，我们决战到天明！")

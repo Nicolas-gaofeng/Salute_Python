@@ -167,6 +167,7 @@ flag = True
 # flag = False
 if flag:
     import time
+
     # 列表方式
     print("列表方式".center(50, "*"))
     ls_1 = list(range(1000000))  # 1000000个元素
@@ -196,3 +197,92 @@ if flag:
             count += 1
     end = time.time()
     print("查找{}个元素，在ls_1列表中的有{}个，共用时{}秒".format(len(ls_2), count, round(end - start)))
+
+
+# =========================================   字典练习  =========================================
+# 字典遍历
+#
+# flag = True
+flag = False
+if flag:
+    # example1
+    students = [{"name": "阿土"}, {"name": "小美"}]
+    # 在学员列表中搜索指定的姓名
+    find_name = "张三"
+    for stu_dict in students:
+        print(stu_dict)
+        if stu_dict["name"] == find_name:
+            print("找到了　%s" % find_name)
+            # 如果已经找到，应该直接退出循环，而不再遍历后续的元素
+            break
+        # else:
+        #     print("抱歉没有找到　%s" % find_name)
+    else:
+        # 如果希望在搜索列表时，所有的字典检查之后，都没有发现需要搜索的目标
+        # 还希望得到一个统一的提示！
+        print("抱歉没有找到　%s" % find_name)
+    print("循环结束")
+
+    # example2
+    xiaoming_dict = {"name": "小明", "qq": "123456", "phone": "10086"}
+    # 迭代遍历字典
+    # 变量k是每一次循环中，获取到的键值对的key
+    for k in xiaoming_dict:
+        print("%s - %s" % (k, xiaoming_dict[k]))
+
+        # example3
+        # 使用 多个键值对，存储 描述一个 物体 的相关信息 —— 描述更复杂的数据信息
+        # 将 多个字典 放在 一个列表 中，再进行遍历
+        card_list = [
+            {"name": "张三", "qq": "12345", "phone": "110"},
+            {"name": "李四", "qq": "54321", "phone": "10086"},
+        ]
+        for card_info in card_list:
+            print(card_info)
+
+
+# =========================================  字典转换 =========================================
+#  list3 = [
+#     {"name": "alex", "hobby": "抽烟"},
+#     {"name": "alex", "hobby": "喝酒"},
+#     {"name": "alex", "hobby": "烫头"},
+#     {"name": "alex", "hobby": "Massage"},
+#     {"name": "wusir", "hobby": "喊麦"},
+#     {"name": "wusir", "hobby": "街舞"},
+#     {"name": "wusir", "hobby": "唱歌"},
+#     {"name": "太白", "hobby": "开车"},
+# ]
+# list4 = [
+#     {"name": "alex", "hobby_list": ["抽烟", "喝酒", "烫头", "Massage"]},
+#     {"name": "wusir", "hobby_list": ["喊麦", "街舞"]},
+# ]
+# # 将list3 这种数据类型转化成list4类型,你写的代码必须支持可拓展,
+# # 比如list3 数据在加一个这样的字典{"name": "wusir", "hobby": "溜达"},
+# 你的list4{"name": "wusir", "hobby_list": ["喊麦", "街舞", "溜达"],
+# # 或者list3增加一个字典{"name": "太白", "hobby": "开车"},
+# # 你的list4{"name": "太白", "hobby_list": ["开车"],
+flag = True
+# flag = False
+if flag:
+    list3 = [
+        {"name": "alex", "hobby": "抽烟"},
+        {"name": "alex", "hobby": "喝酒"},
+        {"name": "alex", "hobby": "烫头"},
+        {"name": "alex", "hobby": "Massage"},
+        {"name": "wusir", "hobby": "喊麦"},
+        {"name": "wusir", "hobby": "街舞"},
+        {"name": "wusir", "hobby": "唱歌"},
+        {"name": "太白", "hobby": "开车"},
+    ]
+    dic = {}
+    for i in list3:
+        if i["name"] not in dic:
+            dic[i["name"]] = {
+                "name": i["name"],
+                "hobby_list": [
+                    i["hobby"],
+                ],
+            }
+        else:
+            dic[i["name"]]["hobby_list"].append(i["hobby"])
+    print(list(dic.values()))

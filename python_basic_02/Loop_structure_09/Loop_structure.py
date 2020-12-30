@@ -305,6 +305,29 @@ if flag:
         row += 1
 
 
+# =========================================  while循环 - example=========================================
+# 写一个用户猜年龄的游戏，允许用户最多尝试3次，每尝试3次后，
+# 如果还没猜对，就问用户是否还想继续玩，如果回答Y或y, 就继续让其猜3次，
+# 以此往复， 如果回答N或n，就退出程序，如何猜对了，就直接退出。
+# flag = True
+flag = False
+if flag:
+    Albert_age = 18
+    count = 0
+    while True:
+        if count == 3:
+            choice = input("继续(Y/N?)>>: ")
+            if choice == "Y" or choice == "y":
+                count = 0
+            else:
+                break
+        guess = int(input(">>: "))
+        if guess == Albert_age:
+            print("you got it")
+            break
+        count += 1
+
+
 # =========================================  while循环 - example =========================================
 # 将未读书籍列表中书名分别输出后，存入已读书籍列表
 # flag = True
@@ -318,6 +341,40 @@ if flag:
         print("我已经读过《{}》了".format(book))
     print(not_read)
     print(have_read)
+
+
+# =========================================   while循环 - example =========================================
+#  """
+#         打印如下金字塔图形，下图为等腰三角形，上面一行内容永远比下面少两颗星星且位于下面一行的正上发（提示：用两层for loop）：
+#             *
+#            ***
+#           *****
+#          *******
+#         *********
+#
+#     """
+#     """
+#     分析
+#     #max_level=5
+#         *        #current_level=1，空格数=4，*号数=1
+#        ***       #current_level=2,空格数=3,*号数=3
+#       *****      #current_level=3,空格数=2,*号数=5
+#      *******     #current_level=4,空格数=1,*号数=7
+#     *********    #current_level=5,空格数=0,*号数=9
+#     #数学表达式
+#     空格数=max_level-current_level
+#     *号数=2*current_level-1
+#     """
+# flag = True
+flag = False
+if flag:
+    max_level = 5
+    for current_level in range(1, max_level + 1):
+        for i in range(max_level - current_level):
+            print(" ", end="")  # 在一行中连续打印多个空格
+        for j in range(2 * current_level - 1):
+            print("*", end="")  # 在一行中连续打印多个*
+        print()
 
 
 # =========================================  for循环 - 迭代遍历 =========================================
@@ -345,6 +402,42 @@ if flag:
         print("ending")
 
 
+# =========================================  for循环-list遍历 =========================================
+# li = [ 1 , 3 , 4 , " alex " , [ 3 , 7 , 8 , " TaiBal " ] , 5 , " RiTiAn " ]
+# 循环打印列表中的每个元素，遇到列表则再循环打印出它里面的元素。
+# flag = True
+flag = False
+if flag:
+    li = [1, 3, 4, " alex ", [3, 7, 8, " TaiBal "], 5, " RiTiAn "]
+    for i in li:
+        if type(i) == list:
+            for j in i:
+                print(j)
+        else:
+            print(i)
+
+
+# =========================================  for循环-list遍历 =========================================
+# 开发敏感词语过滤程序，提示用户输入评论内容，如果用户输入的内容中包含特殊的字符：
+# #敏感词列表1i=[”苍老师”，”东京热”，“武藤兰”，“波多野结衣”
+# #则将用户输入的内容中的敏感词汇替换成等长度的*(苍老师就替换***),并添加到一个列表中；
+# #如果用户输入的内容没有敏感词汇，则直接添加到上述的列表中。
+# flag = True
+flag = False
+if flag:
+    li = ["苍老师", "东京热", "武藤兰", "波多野结衣"]
+    con_list = []
+    while True:
+        comment = input("请输入评论：").strip()
+        if comment.upper() == "Q":
+            break
+        for i in li:
+            if i in comment:
+                comment = comment.replace(i, "*" * len(i))
+        con_list.append(comment)
+    print(con_list)
+
+
 # =========================================  for循环 - range遍历数组 =========================================
 #
 # flag = True
@@ -366,6 +459,18 @@ if flag:
     for i in range(10):
         sum += i
     print(sum)
+
+
+# =========================================  for循环 - 计算用户输入的内容中有几个整数 =========================================
+# flag = True
+flag = False
+if flag:
+    content = input("请输入内容:").strip()
+    count = 0
+    for i in content:
+        if i.isdigit():
+            count += 1
+    print(count)
 
 
 # =========================================  for循环 - for + else =========================================
@@ -394,7 +499,7 @@ if flag:
     else:
         print("产品抽检合格")
 
-    print("查找名片example".center(50,"*"))
+    print("查找名片example".center(50, "*"))
     students = [
         {"name": "阿土", "age": 20, "gender": True, "height": 1.7, "weight": 75.0},
         {"name": "小美", "age": 19, "gender": False, "height": 1.6, "weight": 45.0},
@@ -453,3 +558,74 @@ if flag:
         if product_scores[i] >= 75:
             continue
         print("第{0}个产品，分数为{1}，不合格".format(i, product_scores[i]))
+
+
+# =========================================  使用try/while/for中else分支 =========================================
+# flag = True
+flag = False
+if flag:
+
+    def do_the_first_thing():
+        pass
+
+    def do_the_second_thing():
+        pass
+
+    def do_stuff():
+        first_thing_successed = False
+        try:
+            do_the_first_thing()  # 做第一件事
+            first_thing_successed = True  # 第一件事成功了，把标志位置为True
+        except Exception as e:  # 如果上面两行代码（try中的两行代码）有错误，第一件事没有成功，执行下面语句
+            print("Error while calling do_some_thing")
+            return
+        # 仅当first_thing成功完成时，做第二件事
+        if first_thing_successed:
+            return do_the_second_thing()
+
+    # else改写上述程序当循环使用的迭代对象被正常耗尽、或while循环使用的条件变量变为False后才执行else分支下的代码。
+    def do_stuff():
+        try:
+            do_the_first_thing()
+        except Exception as e:
+            print("Error while calling do_some_thing")
+            return
+        else:
+            return do_the_second_thing()
+
+
+# =========================================  电影投票 =========================================
+#  电影投票.程序先给出⼀个⽬前正在上映的电影列表.由⽤户给每⼀个电影投票.最终
+#     将该⽤户投票信息公布出来 。
+#     要求：
+#     1，用户输入序号，进行投票。比如输入序号
+#     1，给金瓶梅投票1。
+#     2，每次投票成功，显示给哪部电影投票成功。
+#     3，退出投票程序后，要显示最终每个电影的投票数。
+#     结果: {'⾦瓶梅': 99, '解救吴先⽣': 80, '美国往事': 6, '⻄⻄⾥的美丽传说': 23}
+# flag = True
+flag = False
+if flag:
+
+    lst = ["⾦瓶梅", "解救吾先⽣", "美国往事", "⻄⻄⾥的美丽传说"]
+    dic = {"⾦瓶梅": 0, "解救吾先⽣": 0, "美国往事": 0, "⻄⻄⾥的美丽传说": 0}
+
+    while 1:
+        for index, name in enumerate(lst, 1):
+            print("投票序号：%s,投票电影：%s" % (index, name))
+        num = input("请输入你投票的电影序号：(Q或者q退出)").strip()
+        if num.isdigit():
+            if 0 < int(num) <= len(lst):
+                dic[lst[int(num) - 1]] += 1
+                print("感谢您，为%s投票" % lst[int(num) - 1])
+            else:
+                print("没有此序号。。。。")
+        elif num.upper() == "Q":
+            break
+        else:
+            print("请输入数字")
+    print(
+        "'⾦瓶梅': %(⾦瓶梅)s, '解救吾先⽣': %(解救吾先⽣)s, '美国往事': %(美国往事)s\
+    , '⻄⻄⾥的美丽传说': %(⻄⻄⾥的美丽传说)s"
+        % dic
+    )
