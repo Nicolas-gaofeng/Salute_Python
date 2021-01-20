@@ -2,6 +2,8 @@
 
 ## 一、认识Python
 
+> [程序练习](https://github.com/Nicolas-gaofeng/Salute_Python/blob/main/code/summary/python_summary.py)
+
 人生苦短，我用 Python —— Life is short, you need Python
 
 ![image-20201228094108679](https://gitee.com/zgf1366/pic_store/raw/master/img/20210120144048.png)
@@ -690,6 +692,3 @@ bool值就是True，False，无论你创建多少个变量指向True，False，�
 
 因此，大家在编写程序时，应该尽量养成习惯：`除非需求的特殊要求，否则 循环 的计数都从 0 开始`
 
-## 十一、程序练习
-
-[程序练习](https://github.com/Nicolas-gaofeng/Salute_Python/blob/main/code/summary/python_summary.py)
