@@ -249,7 +249,7 @@ Python 2.x 中如何使用中文
 
 Python 的解释器
 
-```
+```bash
 # 使用 python 2.x 解释器
 $ python xxx.py
  
@@ -303,7 +303,7 @@ b.退出 官方的解释器
 
 - 直接输入 `exit()`
 
-```
+```bash
 >>> exit()
 ```
 
@@ -339,7 +339,7 @@ c.要退出解释器可以有以下两种方式：
 
 1> 直接输入 `exit`
 
-```
+```bash
 In [1]: exit
 ```
 
@@ -349,7 +349,7 @@ In [1]: exit
 
 - IPython 的安装
 
-```
+```bash
 $ sudo apt install ipython
 ```
 
@@ -573,27 +573,27 @@ Python程序是由代码块构造的。块是一个python程序的文本，他�
 
 　　str：几乎所有的字符串都会符合缓存机制，具体规定如下：
 
-​		1.非乘法得到的字符串都满足代码块的缓存机制：
+1.非乘法得到的字符串都满足代码块的缓存机制：
 
-```
+```python
 s1 = '太白@！#*ewq'
 s2 = '太白@！#*ewq'
 print(s1 is s2)  # True
 ```
 
-​		2.乘法得到的字符串分两种情况：
+2.乘法得到的字符串分两种情况：
 
-​			2.1 乘数为1时，任何字符串满足代码块的缓存机制：
+2.1 乘数为1时，任何字符串满足代码块的缓存机制：
 
-```
+```python
 b1 = '太白@5847395QQ0743895*&^%$#((&_+(())' *1
 a1 = '太白@5847395QQ0743895*&^%$#((&_+(())' *1
 print(a1 is b1)  # True
 ```
 
-　　		2.2 乘数>=2时：仅含大小写字母，数字，下划线，总长度<=20，满足代码块的缓存机制：
+2.2 乘数>=2时：仅含大小写字母，数字，下划线，总长度<=20，满足代码块的缓存机制：
 
-```
+```python
 s1 = 'old_' * 5
 s2 = 'old_' * 5
 print(s1 is s2)  # True
@@ -661,7 +661,7 @@ python会将一定规则的字符串在字符串驻留池中，创建一份，�
 
 4. 指定驻留
 
-```
+```python
 from sys import intern
 a = intern('hello!@'*20)
 b = intern('hello!@'*20)
@@ -692,4 +692,4 @@ bool值就是True，False，无论你创建多少个变量指向True，False，�
 
 ## 十一、程序练习
 
-[程序练习](https://github.com/Nicolas-gaofeng/Salute_Python/blob/main/python_summary_01/python_summary.py)
+[程序练习](https://github.com/Nicolas-gaofeng/Salute_Python/blob/main/code/summary/python_summary.py)
