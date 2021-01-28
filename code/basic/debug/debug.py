@@ -16,10 +16,12 @@
 # step into进入内部程序
 # 左边三角 或者 F9 让程序执行完毕
 
-flag = True
-# flag = False
+# flag = True
+flag = False
 if flag:
     print("Hello Python")
     print("你好， 世界")
     print("Hello Hello")
     print("hello")
+    # bug如下
+    # pirnt("这是书写错误bug")

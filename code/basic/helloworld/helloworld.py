@@ -2,7 +2,7 @@
 # -*- coding:utf-8 -*-
 
 """
-@file       : HelloWorld.py
+@file       : helloworld.py
 @author     : zgf
 @brief      : 第一个python程序
 @attention  : life is short,I need python

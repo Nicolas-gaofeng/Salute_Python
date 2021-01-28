@@ -24,41 +24,9 @@ if flag:
 flag = False
 if flag:
 
-    class AgeOfStudent:
+    class AgeOfStudent(object):
         def func(self, i):
             pass
-
-
-# =========================================  变量命名说明 =========================================
-# 变量名 = 值  : 等号（=）用来给变量赋值 （=）左边是一个变量名 （=）右边是存储在变量中的值
-# 变量定义之后，后续就可以直接使用了
-# 变量名只能是字母/数字或下划线的任意组合，并严格区分大小写
-# 变量名的第一个字符不能是数字; 变量名中间不能有空格;  关键字不能作为变量
-# flag = True
-flag = False
-if flag:
-    python_is_第一名 = True
-    set_student = "张三"  # 命名1：下划线命名法 变量名由多个单词组成：用_连接多个单词
-    list_teacher = "李四"  # 变量名尽可能有实际意义，表征数据的某种特性
-    AgeOfStudent = [17, 18, 19]  # 命名2：驼峰体（推荐：类名） 变量名由多个单词组成：单词首字母大写
-    print(AgeOfStudent)
-    print(python_is_第一名)  # 尽量避免用中文和拼音做变量名
-    print(set_student)
-    print(list_teacher)
-    # 全局变量命名
-    gl_num = 10
-    gl_title = "黑马程序员"
-    gl_name = "小明"
-
-    def demo():
-        # 如果局部变量的名字和全局变量的名字相同
-        # pycharm会在局部变量下方显示一个灰色的虚线
-        num = 99
-        print("%d" % num)
-        print("%s" % gl_title)
-        print("%s" % gl_name)
-
-    demo()
 
 
 # =========================================  模块命名说明 =========================================
@@ -102,3 +70,33 @@ if flag:
     MAX_ITERATION = 1000
     print(PI)
     print(MAX_ITERATION)
+
+
+# =========================================  变量命名说明 =========================================
+# 变量名 = 值  : 等号（=）用来给变量赋值 （=）左边是一个变量名 （=）右边是存储在变量中的值
+# 变量名只能是字母/数字或下划线的任意组合，并严格区分大小写
+# 变量名的第一个字符不能是数字; 变量名中间不能有空格;  关键字不能作为变量
+# flag = True
+flag = False
+if flag:
+    python_is_第一名 = True
+    print(python_is_第一名)  # 尽量避免用中文和拼音做变量名
+    set_student = "张三"  # 下划线命名法 变量名由多个单词组成：用_连接多个单词
+    list_teacher = "李四"  # 变量名尽可能有实际意义，表征数据的某种特性
+    print(set_student)
+    print(list_teacher)
+
+    # 全局变量命名
+    gl_num = 10
+    gl_title = "黑马程序员"
+    gl_name = "小明"
+
+    def demo():
+        # 如果局部变量的名字和全局变量的名字相同
+        # pycharm会在局部变量下方显示一个灰色的虚线
+        num = 99
+        print("%d" % num)
+        print("%s" % gl_title)
+        print("%s" % gl_name)
+
+    demo()

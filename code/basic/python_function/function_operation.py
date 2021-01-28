@@ -467,6 +467,22 @@ if flag:
     demo(gl_list)
     print(gl_list)
 
+
+
+
+
+    def func1(*args, **kwargs):  # 函数的定义：*聚合。
+        print(*args)  # (*(1,2,3,4))函数的执行： * 打散  print(1,2,3,4)
+        # print(**kwargs)  # print(name='alex',age=1000) print会报错
+        print(kwargs)
+
+    func1(1, 2, 3, 4, name="alex", age=1000)
+    print(1, 2, 3, sep="|")  # sep 打印多个内容是分隔符默认是空格
+    print(1, end=" ")  # end：默认换行
+    print(222)
+    f = open("t1", encoding="utf-8", mode="w")
+    print(666, "777", "888", file=f)
+
 # =========================================  函数体与变量作用域 =========================================
 # 函数体就是一段只在函数被调用时，才会执行的代码，代码构成与其他代码并无不同
 # 局部变量——仅在函数体内定义和发挥作用
@@ -909,144 +925,10 @@ if flag:
 
     # func = lambda x:x if x > 2 else x * 2
 
-# ========================================= 动态交互 input() 输入 =========================================
-# input接收的数据输出的是一个字符串
-# flag = True
-flag = False
-if flag:
-    x = input("请输入一个数字：")
-    print(x, type(x))
-
-# ========================================= eval() 去掉引号 =========================================
-# input接收的数据输出的是一个字符串
-# 不建议使用 ***
-# flag = True
-flag = False
-if flag:
-    x = input("请输入一个数字：")
-    print(x, type(x))
-    x = eval(x)
-    print(x, type(x))
-
-    # 1.2.1 字符串类型代码的执行 eval，exec，complie
-    # eval: 执行字符串类型的代码，并返回最终结果
-    s1 = "1+2+3"
-    print(s1)
-    s2 = "{'name':'alex'}"
-    print(eval(s1), type(eval(s1)))
-    print(eval(s2), type(eval(s2)))
-
-# ========================================= print() 打印 =========================================
-# flag = True
-flag = False
-if flag:
-    print(1)  # 默认换行
-    print(2)  # 默认换行
-    print(123, end="")  # 换行控制end=
-    print(123, end="留在这里")  # 换行控制end可自定义
-    # 在默认情况下，print 函数输出内容之后，会自动在内容末尾增加换行
-    print("*", end="---")
-    print("*")
-    # 　　input:函数接受一个标准输入数据，返回为 string 类型。
-    # 　　print:打印输出。
-    print("666")
-    print(1, 2, 3, 4)  # 1 2 3 4
-    print(*[1, 2, 3])  # 1 2 3
-
-    def func1(*args, **kwargs):  # 函数的定义：*聚合。
-        print(*args)  # (*(1,2,3,4))函数的执行： * 打散  print(1,2,3,4)
-        # print(**kwargs)  # print(name='alex',age=1000) print会报错
-        print(kwargs)
-
-    func1(1, 2, 3, 4, name="alex", age=1000)
-    print(1, 2, 3, sep="|")  # sep 打印多个内容是分隔符默认是空格
-    print(1, end=" ")  # end：默认换行
-    print(222)
-    f = open("t1", encoding="utf-8", mode="w")
-    print(666, "777", "888", file=f)
-
-# ========================================= print() 组合输出 =========================================
-# flag = True
-flag = False
-if flag:
-    PI = 3.1415926
-    E = 2.71828
-    print("PI = ", PI, "E = ", E)
-
-# ========================================= print() 占位输出 =========================================
-# flag = True
-flag = False
-if flag:
-    name = "xiaoming"
-    age = 18
-    """第一种方式 s为字符串，d为数字"""
-    print("姓名为%s，年龄为%d" % (name, age))
-    """第2种方式 s为字符串，d为数字"""
-    print("姓名为%(name)s，年龄为%(age)d" % {"name": name, "age": age})
-    """bug点，在格式化输出中，只想单纯表示一个%号时，应该用%%表示"""
-    # msg = '我叫%s,今年%d岁，我的学习进度为%1' %(name,age)
-    msg = "我叫%s,今年%d岁，我的学习进度为%%1" % (name, age)
-    print(msg)
 
 
-# ========================================= print() -格式化输出 =========================================
-# flag = True
-flag = False
-if flag:
-    # 定义字符串变量 name，输出 我的名字叫 小明，请多多关照！
-    name = "大小明"
-    print("我的名字叫 %s，请多多关照！" % name)
-
-    # 定义整数变量 student_no，输出 我的学号是 000001
-    student_no = 100123456
-    print("我的学号是 %06d" % student_no)
-
-    # 定义小数 price、weight、money，
-    # 输出 苹果单价 9.00 元／斤，购买了 5.00 斤，需要支付 45.00 元
-    price = 8.5
-    weight = 7.5
-    money = price * weight
-    print("苹果单价 %.2f 元／斤，购买了 %.3f 斤，需要支付 %.4f 元" % (price, weight, money))
-
-    # 定义一个小数 scale，输出 数据比例是 10.00%
-    scale = 0.8
-    print("数据比例是 %.2f%%" % (scale * 100))
-
-    # example 2
-    PI = 3.1415926
-    E = 2.71828
-    print("PI = {0} , E = {1}".format(PI, E))  # 基本格式：“字符{0}字符{1}.format(v0,v1)”
-    print("PI = {} , E = {}".format(PI, E))  # 按顺序分配
-    print("PI = {1} , E = {0}".format(PI, E))  # 指定顺序分配
-    print("PI = {0} , E = {0}".format(PI, E))  # 指定顺序分配
-
-    print("我叫{name},今年{age},性别{sex}".format(age="28", name="zhangsna", sex="男"))
-    # 填充输出
-    print("PI = {0:_^20}".format(PI))  # 0代表占位符 ：表示对变量进行修饰 _表示填充的图案 ^表示中间 20表示输出的宽度
-    print("PI = {0:*<20}".format(PI))  # 0代表占位符 ：表示对变量进行修饰 _表示填充的图案 <表示左对齐 20表示输出的宽度
-    print("PI = {0:_>30}".format(PI))  # 0代表占位符 ：表示对变量进行修饰 _表示填充的图案 >表示右对齐 20表示输出的宽度
-    # 数字千分位分隔符
-    print("{0:,}".format(10000000))  # 数字千分位分隔符：在：后加，如果需要填充 ， 需要在最后
-    print("{0:&>20,}".format(10000000))  # 第一步必须是填充
-    # print("{0:,&>20}".format(10000000))  # 第一步必须是填充 不能先表示分隔符
-    # 浮点数简化输出
-    print("{0:.2f}".format(PI))  # 留两位小数
-    print("{0:.3f}".format(PI))
-    print("{0:.1%}".format(0.818727))  # 按百分号输出
-    print("{0:.2%}".format(0.817819))
-    print("{0:.2e}".format(0.818727))  # 科学计数法输出
-    print("二进制{0:b},Unicode码{0:c},十进制{0:d},八进制{0:o},十六进制{0:x}".format(450))  # 整数的进制转换输出
 
 
-# ========================================= type(变量) 类型判别 =========================================
-# 使用type()可以查看一个变量的类型
-# flag = True
-flag = False
-if flag:
-    age = 20
-    name = "Ada"
-    print(type(age))
-    print(type(name))
 
 
 # ========================================= isinstance(变量,预判类型)  类型判别 =========================================
@@ -1213,45 +1095,6 @@ if flag:
     print(msg)
 
 
-# =========================================  类型转换 =========================================
-# 数字类型转字符串 str(数字类型)
-# flag = True
-flag = False
-if flag:
-    age = 20
-    print("My age is " + str(age))
-    # 仅有数字组成的字符串转数字 int() float()  eval()
-    # int() 有去除空格的功能
-    s1 = "20"
-    s2 = "10.1"
-    print(int(s1))  # 仅整型
-    print(float(s1))
-    print(float(s2))
-    print(eval(s1))
-    print(eval(s2))
-    print(int("   5"), type(int("   5")))
-    """*.example：整数加法计算器"""
-    # 方法一
-    content = input("请输入内容：").strip()  # 5+9 100 +99    22 + 34
-    plus_index = content.find("+")
-    num1 = content[:plus_index]  # '5'
-    num2 = content[plus_index + 1 :]  # '9'
-    result = int(num1) + int(num2)
-    print(result)
-    # 方法二
-    content = input("请输入内容：").strip()
-    num_list = content.split("+")
-    result = int(num_list[0]) + int(num_list[1])
-    print(result)
-
-    # 　　int：函数用于将一个字符串或数字转换为整型。***
-    print(int("123"))
-    print(int(3.74))  # 取整 不是四舍五入
-    print(int("0101", base=2))  # 将2进制的 0100 转化成十进制。结果为 4
-    # 　　float：函数用于将整数和字符串转换成浮点数。 ***
-    # print(type(3.14))
-    # 　　　complex：函数用于创建一个值为real + imag * j的复数或者转化一个字符串或数为复数。
-    # 如果第一个参数为字符串，则不需要指定第二个参数。。
 
 
 # =========================================  函数 - 阶乘 =========================================

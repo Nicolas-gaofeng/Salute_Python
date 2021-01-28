@@ -2,7 +2,7 @@
 # -*- coding:utf-8 -*-
 
 """
-@file       : notes_python.py
+@file       : notes.py
 @author     : zgf
 @brief      : python注释
 @attention  : life is short,I need python
