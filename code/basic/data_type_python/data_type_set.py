@@ -5,7 +5,7 @@
 """
 @file       : data_type_set.py
 @author     : zgf
-@brief      : 数据类型- set
+@brief      : 数据类型- 集合
 @attention  : life is short,I need python
 """
 

@@ -1060,24 +1060,6 @@ if flag:
     # print() sum reversed
     # key : min max map sorted filter zip
 
-# ========================================= sorted()  =========================================
-#  sorted：对所有可迭代的对象进行排序操作。 *****
-# flag = True
-flag = False
-if flag:
-    l1 = [2, 3, 5, 3, 1, 9, 8, 6]
-    l1.sort()
-    print(l1)
-    print(sorted(l1))  # 形成了一个新列表
-    print(l1)  # 原列表不变
-    #
-    l2 = [(1, 1000), (2, 18), (4, 250), (3, 500)]
-    print(sorted(l2))
-
-    def func1(x):
-        return x[1]
-
-    print(sorted(l2, key=func1, reverse=True))
 
 
 # ========================================= repr()   =========================================

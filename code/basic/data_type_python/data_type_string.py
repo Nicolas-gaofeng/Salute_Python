@@ -5,7 +5,7 @@
 """
 @file       : data_type_string.py
 @author     : zgf
-@brief      : 数据类型- string
+@brief      : 数据类型- 字符串
 @attention  : life is short,I need python
 """
 
