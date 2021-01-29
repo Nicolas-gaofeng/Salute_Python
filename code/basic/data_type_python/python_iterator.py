@@ -17,9 +17,7 @@
 # 可迭代对象满足可迭代协议。
 # for item in Iterable 等价于：
 # 先通过iter()函数获取可迭代对象Iterable的迭代器
-#
 # 然后对获取到的迭代器不断调用next()方法来获取下一个值并将其赋值给item
-#
 # 当遇到StopIteration的异常后循环结束
 # flag = True
 flag = False
@@ -67,7 +65,6 @@ if flag:
             print(iter1.__next__())
         except StopIteration:
             break
-
 
 
 # =========================================  迭代器 =========================================

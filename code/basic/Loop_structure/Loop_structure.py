@@ -478,8 +478,8 @@ if flag:
 # - 如果存在，提示并且退出循环
 # - 如果不存在，在循环整体结束后，希望得到一个统一的提示
 # 如果for 循环全部执行完毕，没有被break中止，则运行else块
-flag = True
-# flag = False
+# flag = True
+flag = False
 if flag:
     L = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     for i in L:

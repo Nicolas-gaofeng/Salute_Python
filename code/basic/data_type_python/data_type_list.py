@@ -21,7 +21,6 @@
 flag = False
 if flag:
 
-    """*.列表的创建"""
     name = ["zhangsan", "lisi", "wangwu"]
     print(name, type(name))
 
@@ -64,8 +63,41 @@ if flag:
     print(cars[::-1])  # 获得反向列表
 
 
+# =========================================  列表（list）-增加元素 =========================================
+# list1 + list2
+# list.append() 在末尾追加数据
+# list.insert() 在指定位置插入数据
+# list.extend(list2) 将列表2 的数据追加到列表
+# flag = True
+flag = False
+if flag:
+    """*.列表的增加"""
+    # 列表的操作符 + 拼接列表
+    a = [1, 2]
+    b = [3, 4]
+    print(a + b)  # 该用法用的不多
+    # 用n*list或list*n实现列表的成倍复制
+    print([0] * 10)
+    # append（）：增加元素 - 在末尾增加元素——列表.append(待增元素)
+    languages = ["Python", "C++", "R"]
+    languages.append("Java")
+    print(languages)
+    languages.append(["Ruby", "PHP"])
+    print(languages)
+
+    # insert（）： 方法可以在列表的指定索引位置插入数据
+    languages.insert(1, "小美眉")
+
+    # extend（）：增加元素 -在末尾整体并入另一列表——列表1.extend(列表2)
+    # extend 方法可以把其他列表中的完整内容，追加到当前列表的末尾
+    # 增加元素 -extend 将待列表2内的元素逐个添加到列表1中
+    languages = ["Python", "C", "C++", "R", "Java"]
+    languages.extend(["Ruby", "PHP"])
+    print(languages)
+
+
 # ========================================= 列表（list）- 列表的数据统计  =========================================
-# len()
+# len(list)
 # count()
 # index()
 # flag = True
@@ -83,9 +115,9 @@ if flag:
 
 
 # =========================================  列表（list）- 列表的排序 =========================================
-# 列表.sort() 直接在列表上进行操作，无返回值
-# sorted(列表) 原列表保持不变，返回排序后的列表
-# 列表.reverse() 直接在列表上进行操作，无返回值
+# list.sort() 直接在列表上进行操作，无返回值
+# sorted(list) 原列表保持不变，返回排序后的列表
+# list.reverse() 直接在列表上进行操作，无返回值
 # flag = True
 flag = False
 if flag:
@@ -123,39 +155,6 @@ if flag:
     print(ls)
     ls.reverse()
     print(ls)
-
-
-# =========================================  列表（list）-增加元素 =========================================
-# +
-# append()
-# insert()
-# extend()
-# flag = True
-flag = False
-if flag:
-    """*.列表的增加"""
-    # 列表的操作符 + 拼接列表
-    a = [1, 2]
-    b = [3, 4]
-    print(a + b)  # 该用法用的不多
-    # 用n*list或list*n实现列表的成倍复制
-    print([0] * 10)
-    # append（）：增加元素 - 在末尾增加元素——列表.append(待增元素)
-    languages = ["Python", "C++", "R"]
-    languages.append("Java")
-    print(languages)
-    languages.append(["Ruby", "PHP"])
-    print(languages)
-
-    # insert（）： 方法可以在列表的指定索引位置插入数据
-    languages.insert(1, "小美眉")
-
-    # extend（）：增加元素 -在末尾整体并入另一列表——列表1.extend(列表2)
-    # extend 方法可以把其他列表中的完整内容，追加到当前列表的末尾
-    # 增加元素 -extend 将待列表2内的元素逐个添加到列表1中
-    languages = ["Python", "C", "C++", "R", "Java"]
-    languages.extend(["Ruby", "PHP"])
-    print(languages)
 
 
 # =========================================  赋值运算 - 面试题 =========================================
@@ -262,28 +261,7 @@ if flag:
 
 # =========================================  列表推导式 =========================================
 # 列表推导式：一行代码几乎搞定你需要的任何的列表。
-# [expression for value in iterable if conditihon]
-# 三要素：表达式、可迭代对象、if条件（可选）
-# 列表推导式
-# 优点：一行解决，方便。
-# 缺点：容易着迷，不易排错，不能超过三次循环。
-# 列表推导式不能解决所有列表的问题，所以不要太刻意用。
-# """
-# 执行过程
-#
-# （1）从可迭代对象中拿出一个元素
-#
-# （2）通过if条件（如果有的话），对元素进行筛选
-#
-#  若通过筛选：则把元素传递给表达式
-#
-#  若未通过：  则进入（1）步骤，进入下一次迭代
-# （3）将传递给表达式的元素，代入表达式进行处理，产生一个结果
-#
-# （4）将（3）步产生的结果作为列表的一个元素进行存储
-#
-# （5）重复（1）~（4）步，直至迭代对象迭代结束，返回新创建的列表
-# """
+# [expression for value in iterable if condition]
 # flag = True
 flag = False
 if flag:
@@ -333,14 +311,6 @@ if flag:
     print(squared)
 
     # 生成器表达式：将列表推导式的 []  换成() 即可。
-    # g = (i for i in range(100000000000))
-    # print(g)
-    # print(g.__next__())
-    # print(g.__next__())
-    # print(g.__next__())
-    # print(g.__next__())
-    # print(g.__next__())
-    # print(g.__next__())
     squares = (i ** 2 for i in range(10))
     print(squares)
 
@@ -357,86 +327,6 @@ if flag:
     n = -10
     x = n if n >= 0 else -n
     print(x)
-
-
-# =========================================  数据的复制 - 深浅拷贝 =========================================
-# 列表的复制 深浅拷贝
-# 列表内的元素可以分散的存储在内存中
-# 列表存储的，实际上是这些元素的地址！！！——地址的存储在内存中是连续的
-# deepcopy()
-# 完全独立的copy一份数据，与原数据没有关系，深copy
-# flag = True
-flag = False
-if flag:
-    print("浅拷贝".center(50, "*"))
-    # 浅拷贝之后
-    # 针对不可变元素（数字、字符串、元组）的操作，都各自生效了
-    # 针对不可变元素（列表、集合）的操作，发生了一些混淆
-    # 方法1：列表.copy()
-    languages = ["Python", "C", "R", "Java"]
-    languages_2 = languages.copy()
-    languages.pop()
-    print(languages)
-    print(languages_2)
-    # 方法2：列表[:]
-    languages = ["Python", "C", "R", "Java"]
-    languages_3 = languages[:]
-    languages.pop()
-    print(languages)
-    print(languages_3)
-
-    l1 = [1, 2, 3]
-    l2 = l1.copy()
-    l1.append(666)
-    print(l1, l2)
-    # 对于浅拷贝来说，第一层在内存中是独立的，从第二层开始以及更深的层数，都是使用的一个内存地址，一变都变
-    l1 = [
-        1,
-        2,
-        3,
-        [
-            22,
-        ],
-    ]
-    l2 = l1.copy()
-    # l1.append(666)
-    # print(l1,l2)
-    l1[-1].append("taibai")
-    # print(l1,l2)
-    print(id(l1))
-    print(id(l2))
-    print(id(l1[-1]))
-    print(id(l2[-1]))
-
-    print("深拷贝".center(50, "*"))
-    # 深拷贝将所有层级的相关元素全部复制，完全分开，泾渭分明，避免了上述问题
-    import copy
-
-    l1 = [
-        1,
-        2,
-        3,
-        [
-            22,
-            33,
-        ],
-    ]
-    l2 = copy.deepcopy(l1)
-    print(l1, l2, id(l1), id(l2))
-    l1.append(666)
-    l1[-2].append("太白")
-    print(l1, type(l1))
-    print(l2)
-
-    # 应用场景：面试会考，解释深浅copy
-    # 如果一份数据（列表）第二层时，你想与原数据进行公用，浅copy。
-    #  面试题
-    # 切片属于浅copy
-    l1 = [1, 2, 3, [22, 33]]
-    l2 = l1[:]
-    # l1.append(666)
-    l1[-1].append(666)
-    print(l2)
 
 
 # =========================================  example - 列表删除 =========================================
