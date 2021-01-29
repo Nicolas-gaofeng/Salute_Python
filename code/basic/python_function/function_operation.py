@@ -467,10 +467,6 @@ if flag:
     demo(gl_list)
     print(gl_list)
 
-
-
-
-
     def func1(*args, **kwargs):  # 函数的定义：*聚合。
         print(*args)  # (*(1,2,3,4))函数的执行： * 打散  print(1,2,3,4)
         # print(**kwargs)  # print(name='alex',age=1000) print会报错
@@ -482,6 +478,7 @@ if flag:
     print(222)
     f = open("t1", encoding="utf-8", mode="w")
     print(666, "777", "888", file=f)
+
 
 # =========================================  函数体与变量作用域 =========================================
 # 函数体就是一段只在函数被调用时，才会执行的代码，代码构成与其他代码并无不同
@@ -834,7 +831,7 @@ if flag:
     s3 = """for i in range(3):
         print(i)
     """
-    print(exec(s1))
+    print(exec(s3))
     exec(s3)
 
     # 1.2.3文件操作相关
@@ -924,11 +921,6 @@ if flag:
     print(list(filter(lambda x: x > 10, [5, 8, 11, 9, 15])))
 
     # func = lambda x:x if x > 2 else x * 2
-
-
-
-
-
 
 
 # ========================================= isinstance(变量,预判类型)  类型判别 =========================================
@@ -1061,7 +1053,6 @@ if flag:
     # key : min max map sorted filter zip
 
 
-
 # ========================================= repr()   =========================================
 # repr()  json pickle序列化模块 特殊字符串，python字符串的区别
 # flag = True
@@ -1075,8 +1066,6 @@ if flag:
     # 格式化输出 %r
     msg = "alex 是 %r的人" % ("德高望重")
     print(msg)
-
-
 
 
 # =========================================  函数 - 阶乘 =========================================

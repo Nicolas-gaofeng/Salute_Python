@@ -10,34 +10,29 @@
 
 - 本地编译环境：
 
-  Markdown编辑器使用[Typora](https://typora.io/)
+  - Markdown编辑器使用[Typora](https://typora.io/)
 
-  主题使用[Drake](https://theme.typora.io/theme/Drake/)
+
+  - 主题使用[Drake](https://theme.typora.io/theme/Drake/)
+
 
   
 
 - 在线编译环境：
 
    - [Docsify](https://docsify.js.org/#/)
-- [Github Page](https://pages.github.com/)
+   - [Github Page](https://pages.github.com/)
    - 基于[Gitee](https://gitee.com/)搭建的图床（[传送门](https://nicolas-gaofeng.github.io/Salute_Docsify/#/pic/pic)）
-
    
-
+   
+   
 - 我的联系方式：
 
+   - gaofeng_zgf@163.com
 
-   - 微信：
+   - nicolasgaofeng@gmail.com
 
-      intereting1366
-
-   - 邮箱：
-
-      gaofeng_zgf@163.com
-
-      nicolasgaofeng@gmail.com
-
-      
+   
 
 
 - 仓库说明：
