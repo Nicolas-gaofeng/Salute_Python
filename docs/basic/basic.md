@@ -42,14 +42,14 @@ print 函数的作用，可以把 "" 内部的内容，输出到屏幕上
 
 2. 常见错误
 
-- 1> 手误，例如使用 pirnt("Hello     world")
+- 手误，例如使用 pirnt("Hello     world")
 
 ```text
 NameError: name 'pirnt' is not defined
 名称错误：'pirnt' 名字没有定义
 ```
 
-- 2> 将多条 `print` 写在一行
+- 将多条 `print` 写在一行
 
 ```text
 SyntaxError: invalid syntax
@@ -58,7 +58,7 @@ SyntaxError: invalid syntax
 
 每行代码负责完成一个动作
 
-- 3> 缩进错误
+- 缩进错误
 
 ```text
 IndentationError: unexpected indent
@@ -67,7 +67,7 @@ IndentationError: unexpected indent
 
 - Python 是一个格式非常严格的程序设计语言，每行代码前面都不要增加空格
 
-- 4> python 2.x默认不支持中文
+- python 2.x默认不支持中文
 
 ```text
 SyntaxError: Non-ASCII character '\xe4' in file 01-HelloPython.py on line 3, 
@@ -497,11 +497,15 @@ print("格式化字符串" % (变量1, 变量2...))
 
 #### 1.1 整型 (int)
 
-​	提示：在 Python 2.x 中，整数根据保存数值的长度还分为：
+在 Python 2.x 中，整数根据保存数值的长度还分为：
 
 ​		int（整数）
 
 ​		long（长整数）
+
+在 Python 3.x 中，整数根据保存数值的长度为：
+
+​		int（整数）
 
 #### 1.2 浮点型（float）
 

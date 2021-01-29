@@ -32,9 +32,190 @@ if flag:
     s = "py" "thon"
     print(s)  # 转义符可以用来换行继续输入
 
+    # *-* coding:utf8 *-*
+    # 引号前面的u告诉解释器这是一个utf8编码格式的字符串
+    hello_str = u"hello世界"
+    print(hello_str)
+    for c in hello_str:
+        print(c)
+
+
+# =========================================  字符串 - 判断类型 =========================================
+# string.isspace() ：如果 string 中只包含空格，则返回True
+# string.isalnum() ：如果 string 至少有一个字符并且所有字符都是字母或数字则返回 True
+# string.isalpha() ：如果 string 至少有一个字符并且所有字符都是字母则返回 True
+# string.isdecimal() ：如果 string 只包含数字则返回 True，全角数字
+# string.isdigit() ：如果 string 只包含数字则返回 True，全角数字、⑴、\u00b2
+# string.isnumeric() ：如果 string 只包含数字则返回 True，全角数字，汉字数字
+# string.istitle() ：如果 string 是标题化的(每个单词的首字母大写)则返回 True
+# string.islower() ：如果 string 中包含至少一个区分大小写的字符，并且所有这些(区分大小写的)字符都是小写，则返回 True
+# string.isupper() ：如果 string 中包含至少一个区分大小写的字符，并且所有这些(区分大小写的)字符都是大写，则返回  True
+# flag = True
+flag = False
+if flag:
+
+    """str.isspace()判断空白字符"""
+    space_str = "      \t\n\r"
+    print(space_str.isspace())
+
+    """string.isdigit()字符是否只有数字组成"""
+    age = "20"
+    name = "Ada"
+    print(age.isdigit())
+    print(name.isdigit())
+
+    num_str = "一千零一"
+    print(num_str)
+    print(
+        num_str.isdecimal()
+    )  # 如果 string 只包含数字则返回 True，全角数字如果 string 只包含数字则返回 True，全角数字
+    print(num_str.isdigit())  # 如果 string 只包含数字则返回 True，全角数字、⑴、\u00b2
+    print(num_str.isnumeric())  # 如果 string 只包含数字则返回 True，全角数字，汉字数字
+
+    """str.isalpha()字符是否只有字母组成"""
+    age = "20"
+    name = "Ada"
+    print(name.isalpha())
+    print(age.isalpha())
+    # str.isalnum()字符是否只有数字和字母组成
+    print("Ada20".isalnum())  # 比如可用于判断用户名是否合法
+
+
+# =========================================  字符串 - 查找 =========================================
+# string.startswith(str)检查字符串是否是以 str 开头，是则返回 True
+# string.endswith(str)检查字符串是否是以 str 结束，是则返回 True
+# string.find(str, start=0,  end=len(string))检测 str 是否包含在 string 中，如果 start 和 end 指定范围，则检查是否包含在指定范围内，如果是返回开始的索引值，否则返回 -1
+# string.rfind(str, start=0, end=len(string))类似于 find()，不过是从右边开始查找
+# string.index(str, start=0, end=len(string))跟 find() 方法类似，不过如果 str 不在 string 会报错
+# string.rindex(str, start=0, end=len(string))类似于 index()，不过是从右边开始
+# flag = True
+flag = False
+if flag:
+    """*.成员运算 ：子集in全集  任何一个连续的切片都是原字符串的子集"""
+    folk_singers = "Peter, Paul and Mary"
+    print("Peter" in folk_singers)
+    print("PPM" in folk_singers)
+
+    """*. 查找指定字符串"""
+    hello_str = "hello world"
+    # index同样可以查找指定的字符串在大字符串中的索引
+    print(hello_str.index("llo"))
+    # 注意：如果使用index方法传递的子字符串不存在，程序会报错！
+    # print(hello_str.index("abc"))
+    print(hello_str.find("llo"))
+    # find如果指定的字符串不存在，会返回-1
+    print(hello_str.find("abc"))
+    print(hello_str.find("lo", 1, -1))  # 返回整体的索引，搜索的切片
+
+    """*. 判断是否以指定字符串开始"""
+    hello_str = "hello world"
+    print(hello_str.startswith("Hello"))
+    print(hello_str.startswith("llo", 3, 5))  # 判断其中一部分
+    # 判断是否以指定字符串结束
+    print(hello_str.endswith("world"))
+
+    """*.字符串统计字符"""
+    hello_str = "hello hello"
+    # 1. 统计字符串长度
+    print(len(hello_str))  # 所含字符的个数
+    # 2. 字符串统计——字符串.count("待统计字符串") 统计某一个小（子）字符串出现的次数
+    print(hello_str.count("llo"))
+    s = "Python is an excellent language"
+    print("an:", s.count("an"))
+    print("e:", s.count("e"))
+    # print(hello_str.count("abc"))
+
+
+# =========================================  字符串 - 替换 =========================================
+# string.replace(old_str, new_str, num=string.count(old))把 string 中的 old_str 替换成 new_str，如果 num 指定，则替换不超过 num 次
+# string.capitalize()把字符串的第一个字符大写
+# string.title()把字符串的每个单词首字母大写
+# string.lower()转换 string 中所有大写字符为小写
+# string.upper()转换 string 中的小写字母为大写
+# string.swapcase()翻转 string 中的大小写
+# string.lstrip()截掉 string 左边（开始）的空白字符
+# string.rstrip()截掉 string 右边（末尾）的空白字符
+# string.strip()截掉 string 左右两边的空白字符
+# flag = True
+flag = False
+if flag:
+    """string.title()"""
+    l = "alex wusir*tai6dsa"
+    print(l.title())
+
+    """string.capitalize()"""
+    name = "oldboy"
+    print(name.capitalize())
+
+    """string.swapcase()"""
+    name = "olDbOy"
+    print(name.swapcase())
+
+    """string.upper()"""
+    s = "hello python"
+    print(s.upper())
+
+    """string.lower()"""
+    print(s.lower())
+    print(s)
+
+    """string.strip()"""
+    # 删除两端特定字符——字符串.strip(删除字符)
+    # strip从两侧开始搜索，遇到指定字符执行删除，遇到非指定字符，搜索停止
+    # 类似的还有左删除lstrip和右删除rstrip
+    s = "      I have many blanks     "
+    print(s.strip(" "))  # 还有吗？hahaha
+    print(s.lstrip(" "))
+    print(s.rstrip(" "))
+    print(s)
+    name = "*alex**"
+    print(name.strip("*"))
+    name2 = "weralexqwe"
+    print(name2.strip("erw"))  # 前后同时进行去除，有就去掉
+
+    """string.replace(old_str, new_str, num=string.count(old))"""
+    # 字符串.replace("被替换"，"替换成")
+    # replace方法执行完成之后，会返回一个新的字符串
+    #   注意：不会修改原有字符串的内容
+    s = "Python is coming"
+    s1 = s.replace("Python", "Py")
+    print(s1)
+    s2 = s.replace("i", "I", 2)  # 2代表可以设置次数
+    print(s2)
+    s2 = s.replace("i", "I", 1)  # 1代表可以设置次数
+    print(s2)
+
+
+# =========================================  字符串 - 文本对齐 =========================================
+# string.ljust(width)返回一个原字符串左对齐，并使用空格填充至长度 width 的新字符串
+# string.rjust(width)返回一个原字符串右对齐，并使用空格填充至长度 width 的新字符串
+# string.center(width)返回一个原字符串居中，并使用空格填充至长度 width 的新字符串
+# flag = True
+flag = False
+if flag:
+    poem = ["\t\n登鹳雀楼", "王之涣", "白日依山尽\t\n", "黄河入海流", "欲穷千里目", "更上一层楼"]
+    for poem_str in poem:
+        # 先使用strip方法去除字符串中的空白字符
+        # 再使用center方法居中显示文本""为填入字符
+        print("|%s|" % poem_str.strip().center(10, "　"))
+    # 1. 将字符串中的空白字符全部去掉
+    # 2. 再使用 " " 作为分隔符，拼接成一个整齐的字符串
+    poem_str = "登鹳雀楼\t 王之涣 \t 白日依山尽 \t \n 黄河入海流 \t\t 欲穷千里目 \t\t\n更上一层楼"
+    print(poem_str)
+    # 1. 拆分字符串
+    poem_list = poem_str.split()
+    print(poem_list)
+    # 2. 合并字符串
+    result = " ".join(poem_list)
+    print(result)
+
 
 # =========================================  字符串 - 拆分与拼接 =========================================
-#
+# string.partition(str)把字符串 string 分成一个 3 元素的元组 (str前面,  str, str后面)
+# string.rpartition(str)类似于 partition() 方法，不过是从右边开始查找
+# string.split(str="", num)以 str 为分隔符拆分  string，如果 num 有指定值，则仅分隔 num +  1 个子字符串，str 默认包含 '\r', '\t',  '\n' 和空格
+# string.splitlines()按照行('\r', '\n', '\r\n')分隔，返回一个包含各行作为元素的列表
+# string.join(seq)以 string 作为分隔符，将 seq 中所有的元素（的字符串表示）合并为一个新的字符串
 # flag = True
 flag = False
 if flag:
@@ -116,138 +297,6 @@ if flag:
     print(s[::-1])  # 987654321
 
 
-# =========================================  字符串 - 查找 =========================================
-#
-# flag = True
-flag = False
-if flag:
-    """*.成员运算 ：子集in全集  任何一个连续的切片都是原字符串的子集"""
-    folk_singers = "Peter, Paul and Mary"
-    print("Peter" in folk_singers)
-    print("PPM" in folk_singers)
-
-    """*. 查找指定字符串"""
-    hello_str = "hello world"
-    # index同样可以查找指定的字符串在大字符串中的索引
-    print(hello_str.index("llo"))
-    # 注意：如果使用index方法传递的子字符串不存在，程序会报错！
-    # print(hello_str.index("abc"))
-    print(hello_str.find("llo"))
-    # find如果指定的字符串不存在，会返回-1
-    print(hello_str.find("abc"))
-    print(hello_str.find("lo", 1, -1))  # 返回整体的索引，搜索的切片
-
-    """*. 判断是否以指定字符串开始"""
-    hello_str = "hello world"
-    print(hello_str.startswith("Hello"))
-    print(hello_str.startswith("llo", 3, 5))  # 判断其中一部分
-    # 判断是否以指定字符串结束
-    print(hello_str.endswith("world"))
-
-    """*.字符串统计字符"""
-    hello_str = "hello hello"
-    # 1. 统计字符串长度
-    print(len(hello_str))  # 所含字符的个数
-    # 2. 字符串统计——字符串.count("待统计字符串") 统计某一个小（子）字符串出现的次数
-    print(hello_str.count("llo"))
-    s = "Python is an excellent language"
-    print("an:", s.count("an"))
-    print("e:", s.count("e"))
-    # print(hello_str.count("abc"))
-
-
-# =========================================  字符串 - 替换 =========================================
-#
-# flag = True
-flag = False
-if flag:
-    """*.字符串去除空格"""
-    # 删除两端特定字符——字符串.strip(删除字符)
-    # strip从两侧开始搜索，遇到指定字符执行删除，遇到非指定字符，搜索停止
-    # 类似的还有左删除lstrip和右删除rstrip
-    s = "      I have many blanks     "
-    print(s.strip(" "))  # 还有吗？hahaha
-    print(s.lstrip(" "))
-    print(s.rstrip(" "))
-    print(s)
-    name = "*alex**"
-    print(name.strip("*"))
-    name2 = "weralexqwe"
-    print(name2.strip("erw"))  # 前后同时进行去除，有就去掉
-
-    """*.字符串的替换"""
-    # 字符串.replace("被替换"，"替换成")
-    # replace方法执行完成之后，会返回一个新的字符串
-    #   注意：不会修改原有字符串的内容
-    s = "Python is coming"
-    s1 = s.replace("Python", "Py")
-    print(s1)
-    s2 = s.replace("i", "I", 2)  # 2代表可以设置次数
-    print(s2)
-    s2 = s.replace("i", "I", 1)  # 1代表可以设置次数
-    print(s2)
-
-
-# =========================================  字符串 - 判断 =========================================
-#
-# flag = True
-flag = False
-if flag:
-    """字符串.upper() 字母全部大写"""
-    s = "hello python"
-    print(s.upper())
-
-    """字符串.lower()  字母全部小写 应用场景：验证码转大小写"""
-    print(s.lower())
-    print(s)
-
-    """字符串.title()非字母隔开的每个部分的首字母大写"""
-    l = "alex wusir*tai6dsa"
-    print(l.title())
-
-    """首字母大写 str.capitalize()"""
-    name = "oldboy"
-    print(name.capitalize())
-
-    """大小写翻转 str.swapcase()"""
-    name = "olDbOy"
-    print(name.swapcase())
-
-    """字符串.isdigit()字符是否只有数字组成"""
-    age = "20"
-    name = "Ada"
-    print(age.isdigit())
-    print(name.isdigit())
-
-    num_str = "一千零一"
-    print(num_str)
-    print(
-        num_str.isdecimal()
-    )  # 如果 string 只包含数字则返回 True，全角数字如果 string 只包含数字则返回 True，全角数字
-    print(num_str.isdigit())  # 如果 string 只包含数字则返回 True，全角数字、⑴、\u00b2
-    print(num_str.isnumeric())  # 如果 string 只包含数字则返回 True，全角数字，汉字数字
-
-    """*.字符串判断字母和数字组成"""
-    # str.isalpha()字符是否只有字母组成
-    age = "20"
-    name = "Ada"
-    print(name.isalpha())
-    print(age.isalpha())
-    # str.isalnum()字符是否只有数字和字母组成
-    print("Ada20".isalnum())  # 比如可用于判断用户名是否合法
-
-    """str.isspace()判断空白字符"""
-    space_str = "      \t\n\r"
-    print(space_str.isspace())
-
-    # *-* coding:utf8 *-*
-    # 引号前面的u告诉解释器这是一个utf8编码格式的字符串
-    hello_str = u"hello世界"
-    print(hello_str)
-    for c in hello_str:
-        print(c)
-
-
 # ========================================= 转义字符 =========================================
 # flag = True
 flag = False
@@ -261,27 +310,3 @@ if flag:
 
     # \" 可以在控制台输出 "
     print('hello"hello')
-
-
-# =========================================  字符串练习 =========================================
-# 字符串文本对齐
-# 假设：以下内容是从网络上抓取的
-# 要求：顺序并且居中对齐输出以下内容
-# flag = True
-flag = False
-if flag:
-    poem = ["\t\n登鹳雀楼", "王之涣", "白日依山尽\t\n", "黄河入海流", "欲穷千里目", "更上一层楼"]
-    for poem_str in poem:
-        # 先使用strip方法去除字符串中的空白字符
-        # 再使用center方法居中显示文本""为填入字符
-        print("|%s|" % poem_str.strip().center(10, "　"))
-    # 1. 将字符串中的空白字符全部去掉
-    # 2. 再使用 " " 作为分隔符，拼接成一个整齐的字符串
-    poem_str = "登鹳雀楼\t 王之涣 \t 白日依山尽 \t \n 黄河入海流 \t\t 欲穷千里目 \t\t\n更上一层楼"
-    print(poem_str)
-    # 1. 拆分字符串
-    poem_list = poem_str.split()
-    print(poem_list)
-    # 2. 合并字符串
-    result = " ".join(poem_list)
-    print(result)
