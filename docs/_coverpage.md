@@ -1,5 +1,6 @@
 <br><br>
-![python](https://gitee.com/zgf1366/pic_store/raw/master/img/20210113163610.jpg)
+<!-- ![python](https://gitee.com/zgf1366/pic_store/raw/master/img/20210113163610.jpg) -->
+<img src="https://gitee.com/zgf1366/pic_store/raw/master/img/20210113163610.jpg" width = "300" alt="Salute_Machine_Learning" align=center />
 
 ## 一份学习Python从入门到跑路的记录 | 🚴‍♂️ 
 <iframe src="https://ghbtns.com/github-btn.html?user=Nicolas-gaofeng&repo=Salute_Python&type=star&count=true&size=large" frameborder="0" scrolling="0" width="170" height="30" title="GitHub"></iframe>
