@@ -20,10 +20,8 @@
 # flag = True
 flag = False
 if flag:
-
     name = ["zhangsan", "lisi", "wangwu"]
     print(name, type(name))
-
     ls = ["Python", 1989, True, {"version": 3.7}]
     print(ls, type(ls))
     # 多维列表的创建
