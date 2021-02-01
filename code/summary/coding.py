@@ -73,8 +73,8 @@ if flag:
 # Python 中使用的是Unicode编码
 # 你想将一部分内容（字符串）写入文件，或者通过网络socket传输，这样这部分内容（字符串）必须转化成bytes才可以进行
 # 平时你代码中，使用字符串。
-flag = True
-# flag = False
+# flag = True
+flag = False
 if flag:
     """ord(字符)"""
     # 输入字符找该字符编码 unicode  的位置(将字符转化为Unicode码)

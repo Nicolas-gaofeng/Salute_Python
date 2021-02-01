@@ -13,8 +13,10 @@ print("hello world")
 - 在终端中输入以下命令执行 HelloPython.py
 
 ```bash
-$ python 01-HelloPython.py
+python HelloPython.py
 ```
+
+相对与 `Java，C` 等语言，`Python` 仅仅使用一行语句就完成的了这个任务。
 
 print 是 python 中我们学习的第一个 函数
 
