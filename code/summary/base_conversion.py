@@ -41,3 +41,6 @@ if flag:
 
     i = 4
     print(i.bit_length())  # 查询十进制转化成二进制占用的最小位数
+
+    """format输出"""
+    print("二进制{0:b},Unicode码{0:c},十进制{0:d},八进制{0:o},十六进制{0:x}".format(450))

@@ -251,7 +251,15 @@ Pyc文件：C 是 compiled编译过的意思
 Python 2.x 默认使用 `ASCII` 编码格式
 Python 3.x 默认使用 `UTF-8` 编码格式
 
-- 在 Python 2.x 文件的第一行增加以下代码，解释器会以 `utf-8` 编码来处理 python 文件
+注意：既然是文件头，那么自然是要放在文件顶部，这也是开发规范的一些细节
+
+- 通常使用以下代码指定解释器
+
+```python
+#!/usr/bin/env python  
+```
+
+- 在 Python 2.x 文件的第一行增加以下代码指定文件字符编码，解释器会以 `utf-8` 编码来处理 python 文件
 
 ```python
 # *-* coding:utf8 *-*
@@ -264,6 +272,18 @@ Python 3.x 默认使用 `UTF-8` 编码格式
 ```python
 # coding=utf8
 ```
+
+如果每次写代码我们都自己去写的话有点浪费时间，我们可以自己先在Pycharm上面配置好，以后每次新建一个文件自动就会添加文件头。MacOS系统的用户可以按照先点击Pycharm左上角按照：Pycharm--Preferences--Editor--File and Code Templates--Python Script 的顺序找到一块空白的区域，把以下代码粘贴进去，Windows系统的用户可以按照：File--Settings--Editor--File and Code Templates--Python Script，执行同样的操作。注意：作者那一行代码可以改成你自己的名字。
+
+```python
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+# @Time    : ${DATE} ${TIME}
+# @Author  : Albert  
+# @File    : ${NAME}.py
+```
+
+
 
 ### 3.5 乱码问题的产生与解决
 
