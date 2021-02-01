@@ -1,8 +1,8 @@
-## 一、Python
+## Python
 
 [Python](https://www.python.org/getit/)
 
-## 二、Anaconda
+## Anaconda
 
 [Anaconda](https://www.anaconda.com/products/individual)是一个很好用的Python IDE，它集成了很多科学计算需要使用的python第三方工具包。
 

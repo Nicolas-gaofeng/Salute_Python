@@ -74,3 +74,16 @@ if flag:
     print(isinstance("alex", Iterator))  # False
 
     print(isinstance("alex", str))
+
+
+# ========================================= isinstance(变量,预判类型)  类型判别 =========================================
+# isinstance(变量,预判类型) 承认继承
+# 变量类型是预判类型的子类型，则为真，否则为假
+# flag = True
+flag = False
+if flag:
+    age = 20
+    name = "zhangsan"
+    print(isinstance(age, int))  # 承认继承
+    print(isinstance(age, object))
+    print(isinstance(name, object))  # object 是老祖宗

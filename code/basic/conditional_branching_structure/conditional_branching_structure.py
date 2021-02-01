@@ -78,3 +78,37 @@ if flag:
 
     def all_numbers_gt_10_2(numbers):
         return bool(numbers) and all(n > 10 for n in numbers)
+
+
+# =========================================  使用try/while/for中else分支 =========================================
+# flag = True
+flag = False
+if flag:
+
+    def do_the_first_thing():
+        pass
+
+    def do_the_second_thing():
+        pass
+
+    def do_stuff():
+        first_thing_successed = False
+        try:
+            do_the_first_thing()  # 做第一件事
+            first_thing_successed = True  # 第一件事成功了，把标志位置为True
+        except Exception as e:  # 如果上面两行代码（try中的两行代码）有错误，第一件事没有成功，执行下面语句
+            print("Error while calling do_some_thing")
+            return
+        # 仅当first_thing成功完成时，做第二件事
+        if first_thing_successed:
+            return do_the_second_thing()
+
+    # else改写上述程序当循环使用的迭代对象被正常耗尽、或while循环使用的条件变量变为False后才执行else分支下的代码。
+    def do_stuff():
+        try:
+            do_the_first_thing()
+        except Exception as e:
+            print("Error while calling do_some_thing")
+            return
+        else:
+            return do_the_second_thing()

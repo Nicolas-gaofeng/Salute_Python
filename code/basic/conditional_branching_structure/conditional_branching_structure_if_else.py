@@ -224,3 +224,18 @@ if flag:
     # 其他的情况就是电脑获胜
     else:
         print("不服气，我们决战到天明！")
+
+
+# ========================================= all()  any()  =========================================
+# all：可迭代对象中，全都是True才是True  ***  多做条件判断
+# any：可迭代对象中，有一个True 就是True ***  多做条件判断
+# flag = True
+flag = False
+if flag:
+    """all(seq): 仅当seq中所有对象都为布尔真时返回True, 否则返回False"""
+    """any(seq): 只要seq中任何一个对象为布尔真就返回True, 否则返回False"""
+    # any() all()
+    # any(x)判断x对象是否为空对象，如果都为空、0、false，则返回false，如果不都为空、0、false，则返回true
+    # all(x)如果all(x)参数x对象的所有元素不为0、''、False或者x为空对象，则返回True，否则返回False
+    print(any([False, 1, 0, None]))  # True 0 False None 都是无
+    print(all([False, 1, 0, None]))  # False
