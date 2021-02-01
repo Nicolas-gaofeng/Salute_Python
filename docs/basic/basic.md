@@ -750,6 +750,14 @@ not 条件
 
 优先级 （）> not > and > or
 
+看看下面这两个表达式，猜猜它们的值一样吗？
+
+- (True or False) and False
+
+- True or False and False
+
+答案是：不一样，它们的值分别是 `False` 和 `True`，你猜对了吗？问题的关键在于：`and` 运算符的优先级大于 `or`。因此上面的第二个表达式在 Python 看来实际上是 `True or (False and False)`。所以结果是 `True` 而不是 `False`。在编写包含多个 `and` 和 `or` 的表达式时，请额外注意 `and` 和 `or` 的运算优先级。即使执行优先级正好是你需要的那样，你也可以加上额外的括号来让代码更清晰。
+
 ## 七、数据类型
 
 数据类型可以分为 **数字型** 和 **非数字型**
@@ -1116,6 +1124,19 @@ name_list.copy   name_list.index  name_list.remove
 |       |      | 列表.sort(reverse=True) |         降序排序         |
 |       |      |     列表.reverse()      |        逆序、反转        |
 
+值的测试
+
+**Python**不仅仅可以使用布尔型变量作为条件，它可以直接在`if`中使用任何表达式作为条件：
+
+大部分表达式的值都会被当作`True`，但以下表达式值会被当作`False`：
+
+*   False
+*   None
+*   0
+*   空字符串，空列表，空字典，空集合
+
+推荐使用 `if len(mylist) > 0:` 来判断一个列表是否为空。
+
 ##### 7.2.2.3 del关键字
 
 - 使用 del 关键字(delete) 同样可以删除列表中元素
@@ -1283,6 +1304,50 @@ list(元组)
 ```python
 tuple(列表)
 ```
+
+##### 7.2.3.6 不可变集合
+
+对应于元组（`tuple`）与列表（`list`）的关系，对于集合（`set`），**Python**提供了一种叫做不可变集合（`frozen set`）的数据结构。
+
+使用 `frozenset` 来进行创建：
+
+```python
+s = frozenset([1, 2, 3, 'a', 1])
+s
+```
+
+Out:frozenset({1, 2, 3, 'a'})
+
+与集合不同的是，不可变集合一旦创建就不可以改变。
+
+不可变集合的一个主要应用是用来作为字典的键，例如用一个字典来记录两个城市之间的距离：
+
+```python
+flight_distance = {}
+city_pair = frozenset(['Los Angeles', 'New York'])
+flight_distance[city_pair] = 2498
+flight_distance[frozenset(['Austin', 'Los Angeles'])] = 1233
+flight_distance[frozenset(['Austin', 'New York'])] = 1515
+flight_distance
+```
+
+Out:{frozenset({'Austin', 'New York'}): 1515,
+ frozenset({'Austin', 'Los Angeles'}): 1233,
+ frozenset({'Los Angeles', 'New York'}): 2498}
+
+由于集合不分顺序，所以不同顺序不会影响查阅结果：
+
+```python
+flight_distance[frozenset(['New York','Austin'])]
+```
+
+Out:1515
+
+```python
+flight_distance[frozenset(['Austin','New York'])]
+```
+
+Out:1515
 
 #### 7.2.4 字典
 
@@ -2484,9 +2549,7 @@ generator:  8
 
 ## 八、条件分支结构
 
-> [程序练习](https://github.com/Nicolas-gaofeng/Salute_Python/blob/main/code/basic/conditional_branching_structure/conditional_branching_structure.py)
-
-### 1. 开发中的应用场景 
+### 8.1 开发中的应用场景 
 
 生活中的判断几乎是无所不在的，我们每天都在做各种各样的选择，如果这样？如果那样？……   
 
@@ -2518,9 +2581,9 @@ else:
 
 判断语句 又被称为 “分支语句”，正是因为有了判断，才让程序有了很多的分支
 
-### 2. if 语句
+### 8.2 if 语句
 
-a. 判断语句基本语法
+> [程序练习](https://github.com/Nicolas-gaofeng/Salute_Python/blob/main/code/basic/conditional_branching_structure/conditional_branching_structure_if_else.py)
 
 在 Python 中，if 语句就是用来进行判断的，格式如下：
 
@@ -2536,7 +2599,9 @@ if 要判断的条件:
 
 我们可以把整个 if 语句以及缩进部分看成一个完整的代码块
 
-### 3. else 语句
+### 8.3 else 语句
+
+> [程序练习](https://github.com/Nicolas-gaofeng/Salute_Python/blob/main/code/basic/conditional_branching_structure/conditional_branching_structure_if_else.py)
 
 在 Python 中，else用来处理条件不满足的情况，格式如下：
 
@@ -2553,7 +2618,9 @@ else:
 
 - if 和 else 语句以及各自的缩进部分共同是一个完整的代码块
 
-### 4. elif 语句
+### 8.4 elif 语句
+
+> [程序练习](https://github.com/Nicolas-gaofeng/Salute_Python/blob/main/code/basic/conditional_branching_structure/conditional_branching_structure_if_else.py)
 
 - 在开发中，使用 if 可以判断条件
 - 使用 else 可以处理条件不成立的情况
@@ -2580,7 +2647,9 @@ else:
 1. elif 和 else 都必须和 if 联合使用，而不能单独使用
 2. 可以将 if、elif 和 else 以及各自缩进的代码，看成一个完整的代码块
 
-3. if的嵌套
+### 8.5 if的嵌套
+
+> [程序练习](https://github.com/Nicolas-gaofeng/Salute_Python/blob/main/code/basic/conditional_branching_structure/conditional_branching_structure.py)
 
 elif 的应用场景是同时判断多个条件，所有的条件是平级的
 
@@ -2603,21 +2672,21 @@ else:
   ……
 ```
 
-### 5. 注意事项
+### 8.6 注意事项
 
-#### 5.1 避免多层分支嵌套
+#### 8.6.1 避免多层分支嵌套
 
-如果这篇文章只能删减成一句话就结束，那么那句话一定是“要竭尽所能的避免分支嵌套”。过深的分支嵌套是很多编程新手最容易犯的错误之一。假如有一位新手程序员写了很多层分支嵌套，那么你可能会看到一层又一层的大括号：`if: if: if: ... else: else: else: ...`俗称*“嵌套 if 地狱（Nested If Statement Hell）”*。如果能够避免的话，尽可能用其他的方式代替，这种多层嵌套非常不利于代码的可读性，尤其是当一个 if 分支下代码的量比较多的时候。
+如果这篇文章只能删减成一句话就结束，那么那句话一定是“要竭尽所能的避免分支嵌套”。过深的分支嵌套是很多编程新手最容易犯的错误之一。假如有一位新手程序员写了很多层分支嵌套，那么你可能会看到一层又一层的大括号：`if: if: if: ... else: else: else: ...`俗称“嵌套 if 地狱（Nested If Statement Hell）”。如果能够避免的话，尽可能用其他的方式代替，这种多层嵌套非常不利于代码的可读性，尤其是当一个 if 分支下代码的量比较多的时候。
 
-#### 5.2 封装那些过于复杂的逻辑判断
+#### 8.6.2 封装那些过于复杂的逻辑判断
 
 如果条件分支里的表达式过于复杂，出现了太多的 `not/and/or`，那么这段代码的可读性就会大打折扣，这时我们可以把他拆解，或者先用not 的形式取反，取反的意思即为原来值为True,not后为False，原来值为False,not后为True。
 
-#### 5.3 留意不同分支下的重复代码
+#### 8.6.3 留意不同分支下的重复代码
 
 重复代码是代码质量的天敌，而条件分支语句又非常容易成为重复代码的重灾区。所以，当我们编写条件分支语句时，需要特别留意，不要生产不必要的重复代码。当你编写分支代码时，请额外关注由分支产生的重复代码块，如果可以简单的消灭它们，那就不要迟疑。
 
-#### 5.4 使用“德摩根定律”
+#### 8.6.4 使用“德摩根定律”
 
 在做分支判断时，我们有时候会写成这样的代码：
 
@@ -2635,7 +2704,7 @@ if not (“有余额” and “有透支额度”):
     print("拒绝用户购买")
 ```
 
-#### 5.5 在条件判断中使用 all() / any()
+#### 8.6.5 在条件判断中使用 all() / any()
 
 `all()` 和 `any()` 两个函数非常适合在条件判断中使用。这两个函数接受一个可迭代对象，返回一个布尔值，其中：
 
@@ -2665,7 +2734,7 @@ def all_numbers_gt_10_2(numbers):
 
 简单、高效，同时也没有损失可用性。
 
-#### 5.6 使用 try/while/for 中 else 分支
+#### 8.6.6 使用 try/while/for 中 else 分支
 
 让我们看看这个函数：
 
@@ -2698,7 +2767,7 @@ def do_stuff():
 
 在 `try` 语句块最后追加上 `else` 分支后，分支下的`do_the_second_thing()` 便只会在 try 下面的所有语句正常执行（也就是没有异常，没有 return、break 等）完成后执行。类似的，Python 里的 `for/while` 循环也支持添加 `else` 分支，它们表示：当循环使用的迭代对象被正常耗尽、或 while 循环使用的条件变量变为 False 后才执行 else 分支下的代码。
 
-#### 5.7 与 None 值的比较
+#### 8.6.7 与 None 值的比较
 
 在 Python 中，有两种比较变量的方法：`==` 和 `is`，二者在含义上有着根本的区别：
 
@@ -2724,16 +2793,6 @@ print(foo is None)
 在上面代码中，Foo 这个类通过自定义 `__eq__` 魔法方法的方式，很容易就满足了 `== None` 这个条件。
 
 所以，当你要判断某个变量是否为 None 时，请使用 `is` 而不是 `==`。
-
-#### 5.8 留意 and 和 or 的运算优先级
-
-看看下面这两个表达式，猜猜它们的值一样吗？
-
-- (True or False) and False
-
-- True or False and False
-
-答案是：不一样，它们的值分别是 `False` 和 `True`，你猜对了吗？问题的关键在于：`and` 运算符的优先级大于 `or`。因此上面的第二个表达式在 Python 看来实际上是 `True or (False and False)`。所以结果是 `True` 而不是 `False`。在编写包含多个 `and` 和 `or` 的表达式时，请额外注意 `and` 和 `or` 的运算优先级。即使执行优先级正好是你需要的那样，你也可以加上额外的括号来让代码更清晰。
 
 ## 九、循环结构
 
