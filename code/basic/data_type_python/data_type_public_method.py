@@ -16,3 +16,16 @@
 flag = False
 if flag:
     pass
+
+
+# =========================================  存在运算 =========================================
+# 元素 in 列表/字符串
+# flag = True
+flag = False
+if flag:
+    cars = ["BYD", "BMW", "AUDI", "TOYOTA"]
+    print("BMW" in cars)
+    print("BENZ" in cars)
+    print("BMW" not in cars)
+    print("BENZ" not in cars)
+

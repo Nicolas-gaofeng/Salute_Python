@@ -240,7 +240,7 @@ print(keyword.kwlist)
 在 Python 中，如果变量名需要由二个或多个单词组成时，可以按照以下方式命名
 
  	i. 每个单词都使用小写字母
-
+ 	
  	ii.单词与单词之间使用 _下划线 连接
 
 o  例如：first_name、last_name、qq_number、qq_password
@@ -469,8 +469,6 @@ for i in progress(range(1000)):
 	time.sleep(0.02)
 ```
 
-
-
 ### 5.4 变量的引用
 
 > [程序练习](https://github.com/Nicolas-gaofeng/Salute_Python/blob/main/code/basic/variable/variable_quote.py)
@@ -483,10 +481,20 @@ for i in progress(range(1000)):
 在 Python 中
 
 - 变量和数据是分开存储的
+
 - 数据保存在内存中的一个位置
+
 - 变量中保存着数据在内存中的地址
+
 - 变量中记录数据的地址，就叫做引用
+
 - 使用 `id()` 函数可以查看变量中保存数据所在的内存地址
+
+- is比较id,判断的是两个变量的id值是否相同。是判断两个标识符是不是引用同一个对象
+
+  is not 是判断两个标识符是不是引用不同对象
+
+  ==比较值
 
 **注意：**
 
@@ -1777,11 +1785,11 @@ for x in myiter:
 
 ## 七、数学运算
 
-> [程序练习](https://github.com/Nicolas-gaofeng/Salute_Python/blob/main/code/basic/arithmetic_operator/arithmetic_operator.py)
-
 既然我们编程的目的是为了控制计算机能够像人脑一样工作，那么人脑能做什么，就需要程序中有相应的机制去模拟。人脑无非是数学运算和逻辑运算，对于数学运算就是加减乘除，很简单，我们先来看一下。
 
-### 1. 算数运算符
+### 7.1 算数运算符
+
+> [程序练习](https://github.com/Nicolas-gaofeng/Salute_Python/blob/main/code/basic/arithmetic_operator/arithmetic_operator.py)
 
 计算机，顾名思义就是负责进行数学计算，并且存储计算结果的电子设备。
 
@@ -1798,14 +1806,49 @@ for x in myiter:
 |   %    | 取余数 |          返回除法的余数 9 % 2 = 1          |
 |   **   |   幂   |         又称次方、乘方，2 ** 3 = 8         |
 
-- 在 Python 中 * 运算符还可以用于字符串，计算结果就是字符串重复指定次数的结果
+1） 在 Python 中 * 运算符还可以用于字符串，计算结果就是字符串重复指定次数的结果
 
 ```python
-In [1]: "-" * 50
-Out[1]: '----------------------------------------' 
+"-" * 50
 ```
 
-### 2. 比较（关系）运算符 
+输出：'----------------------------------------' 
+
+2） 数字型变量之间可以直接计算
+
+- 在 Python 中，两个数字型变量是可以直接进行算数运算的
+
+- 如果变量是 bool 型，在计算时
+
+  - True 对应的数字是 1
+  - False 对应的数字是 0
+
+3) 字符串变量之间使用 + 拼接字符串
+
+- 在 Python 中，字符串之间可以使用 + 拼接生成新的字符串
+
+```python
+first_name = "三"
+last_name = "张"
+first_name + last_name
+```
+
+Out: '三张'
+
+4) 数字型变量和字符串之间不能进行其他计算 
+
+```python
+first_name = "zhang"
+x = 10
+x + first_name
+\---------------------------------------------------------------------------
+TypeError: unsupported operand type(s) **for** +: 'int' **and** 'str'
+类型错误：`+` 不支持的操作类型：`int` 和 `str
+```
+
+### 7.2 比较（关系）运算符 
+
+> [程序练习](https://github.com/Nicolas-gaofeng/Salute_Python/blob/main/code/basic/arithmetic_operator/comparison_operator.py)
 
 | 运算符 |                             描述                             |
 | :----: | :----------------------------------------------------------: |
@@ -1820,7 +1863,9 @@ Python 2.x 中判断 不等于 还可以使用 <> 运算符
 
 != 在 Python 2.x 中同样可以用来判断 不等于
 
-### 3. 逻辑运算符
+### 7.3 逻辑运算符
+
+> [程序练习](https://github.com/Nicolas-gaofeng/Salute_Python/blob/main/code/basic/arithmetic_operator/logical_operator.py)
 
 - 在程序开发中，通常 在判断条件时，会需要同时判断多个条件
 - 只有多个条件都满足，才能够执行后续代码，这个时候需要使用到 逻辑运算符
@@ -1874,7 +1919,9 @@ not 条件
 |  成立  | 不成立 |
 | 不成立 |  成立  |
 
-### 4. 赋值运算符 
+### 7.4 赋值运算符 
+
+> [程序练习](https://github.com/Nicolas-gaofeng/Salute_Python/blob/main/code/basic/arithmetic_operator/assignment _operator.py)
 
 - 在 Python 中，使用 = 可以给变量赋值
 - 在算术运算时，为了简化代码的编写，Python 还提供了一系列的 与 算术运算符对应的 赋值运算符
@@ -1891,7 +1938,7 @@ not 条件
 |   %=   | 取 模 (余数)赋值运算符 |        c %= a 等效于 c = c % a        |
 |  **=   |      幂赋值运算符      |      c **= a 等效于  c = c ** a       |
 
-### 5. 运算符的优先级 
+### 7.5 运算符的优先级 
 
 - 和数学中的运算符的优先级一致，在 Python 中进行数学计算时，同样也是：
   - 先乘除后加减
@@ -1911,46 +1958,6 @@ not 条件
 |        not and or        |       逻辑运算符       |
 
 优先级 （）> not > and > or
-
-### 6. 不同类型变量之间的计算
-
-1) 数字型变量 之间可以直接计算
-
-- 在 Python 中，两个数字型变量是可以直接进行算数运算的
-
-- 如果变量是 bool 型，在计算时
-
-  - True 对应的数字是 1
-  - False 对应的数字是 0
-
-2) 字符串变量 之间使用 + 拼接字符串
-
-- 在 Python 中，字符串之间可以使用 + 拼接生成新的字符串
-
-```python
-first_name = "三"
-In [2]: last_name = "张"
-In [3]: first_name + last_name
-Out[3]: '三张'
-```
-
-3) 字符串变量 可以和 整数 使用* 重复拼接相同的字符串
-
-```python
-In [1]: "-" * 50
-Out[1]: '--------------------------------------------------'
-```
-
-4) 数字型变量 和 字符串 之间 不能进行其他计算 
-
-```python
-first_name = "zhang"
-x = 10
-x + first_name
-\---------------------------------------------------------------------------
-TypeError: unsupported operand type(s) **for** +: 'int' **and** 'str'
-类型错误：`+` 不支持的操作类型：`int` 和 `str
-```
 
 ## 八、条件分支结构
 
