@@ -2,6 +2,13 @@
 # -*- coding:utf-8 -*-
 
 
+"""
+@file       : oo_3.py
+@author     : zgf
+@brief      : python面向对象 - 继承
+@attention  : life is short,I need python
+"""
+
 # =========================================  面向对象 继承 - 初识 =========================================
 #  不使用继承开发动物和狗
 # flag = True
@@ -45,6 +52,7 @@ if flag:
     wangcai.run()
     wangcai.sleep()
     wangcai.bark()
+
 
 # =========================================  面向对象 继承 - 初识 =========================================
 #  使用继承开发动物和狗
@@ -98,8 +106,8 @@ if flag:
 # flag = True
 flag = False
 if flag:
-    class Animal:
 
+    class Animal:
         def eat(self):
             print("吃---")
 
@@ -112,18 +120,13 @@ if flag:
         def sleep(self):
             print("睡---")
 
-
     class Dog(Animal):
-
         def bark(self):
             print("汪汪叫")
 
-
     class XiaoTianQuan(Dog):
-
         def fly(self):
             print("我会飞")
-
 
     # 创建一个哮天犬的对象
     xtq = XiaoTianQuan()
@@ -132,9 +135,14 @@ if flag:
     xtq.bark()
     xtq.eat()
 
-    # 继承传递性注意事项
-    class Animal:
 
+# =========================================  面向对象 继承 - 继承的传递性 =========================================
+# 继承传递性注意事项
+# flag = True
+flag = False
+if flag:
+
+    class Animal:
         def eat(self):
             print("吃---")
 
@@ -147,25 +155,18 @@ if flag:
         def sleep(self):
             print("睡---")
 
-
     class Dog(Animal):
-
         def bark(self):
             print("汪汪叫")
 
-
     class XiaoTianQuan(Dog):
-
         def fly(self):
             print("我会飞")
 
-
     class Cat(Animal):
-
         def catch(self):
             print("抓老鼠")
 
-
     # 创建一个哮天犬的对象
     xtq = XiaoTianQuan()
 
@@ -173,13 +174,14 @@ if flag:
     xtq.bark()
     xtq.eat()
 
-    # xtq.catch()
 
-    """覆盖父类的方法"""
-
+# =========================================  面向对象 继承 - 覆盖父类的方法 =========================================
+#
+# flag = True
+flag = False
+if flag:
 
     class Animal:
-
         def eat(self):
             print("吃---")
 
@@ -192,32 +194,31 @@ if flag:
         def sleep(self):
             print("睡---")
 
-
     class Dog(Animal):
-
         def bark(self):
             print("汪汪叫")
 
-
     class XiaoTianQuan(Dog):
-
         def fly(self):
             print("我会飞")
 
         def bark(self):
             print("叫得跟神一样...")
 
-
     xtq = XiaoTianQuan()
 
     # 如果子类中，重写了父类的方法
     # 在使用子类对象调用方法时，会调用子类中重写的方法
     xtq.bark()
-    """扩展父类的方法"""
 
+
+# =========================================  面向对象 继承 - 扩展父类的方法 =========================================
+#
+# flag = True
+flag = False
+if flag:
 
     class Animal:
-
         def eat(self):
             print("吃---")
 
@@ -230,15 +231,11 @@ if flag:
         def sleep(self):
             print("睡---")
 
-
     class Dog(Animal):
-
         def bark(self):
             print("汪汪叫")
 
-
     class XiaoTianQuan(Dog):
-
         def fly(self):
             print("我会飞")
 
@@ -257,7 +254,6 @@ if flag:
             # 3. 增加其他子类的代码
             print("$%^*%^$%^#%$%")
 
-
     xtq = XiaoTianQuan()
 
     # 如果子类中，重写了父类的方法
@@ -265,14 +261,13 @@ if flag:
     xtq.bark()
 
 
-
 # =========================================  面向对象 继承 - 父类的私有属性和私有方法 =========================================
 #
 # flag = True
 flag = False
 if flag:
-    class A:
 
+    class A:
         def __init__(self):
             self.num1 = 100
             self.__num2 = 200
@@ -280,9 +275,7 @@ if flag:
         def __test(self):
             print("私有方法 %d %d" % (self.num1, self.__num2))
 
-
     class B(A):
-
         def demo(self):
             # 1. 在子类的对象方法中，不能访问父类的私有属性
             # print("访问父类的私有属性 %d" % self.__num2)
@@ -290,7 +283,6 @@ if flag:
             # 2. 在子类的对象方法中，不能调用父类的私有方法
             # self.__test()
             pass
-
 
     # 创建一个子类对象
     b = B()
@@ -308,8 +300,8 @@ if flag:
 # flag = True
 flag = False
 if flag:
-    class A:
 
+    class A:
         def __init__(self):
             self.num1 = 100
             self.__num2 = 200
@@ -322,9 +314,7 @@ if flag:
 
             self.__test()
 
-
     class B(A):
-
         def demo(self):
             # 1. 在子类的对象方法中，不能访问父类的私有属性
             # print("访问父类的私有属性 %d" % self.__num2)
@@ -338,7 +328,6 @@ if flag:
             # 4. 调用父类的公有方法
             self.test()
             pass
-
 
     # 创建一个子类对象
     b = B()
@@ -354,28 +343,24 @@ if flag:
     # b.__test()
 
 
-
 # =========================================  面向对象 多继承 =========================================
 #
 # flag = True
 flag = False
 if flag:
-    class A:
 
+    class A:
         def test(self):
             print("test 方法")
 
-
     class B:
-
         def demo(self):
             print("demo 方法")
 
-
     class C(A, B):
         """多继承可以让子类对象，同时具有多个父类的属性和方法"""
-        pass
 
+        pass
 
     # 创建子类对象
     c = C()
@@ -389,28 +374,25 @@ if flag:
 # flag = True
 flag = False
 if flag:
-    class A:
 
+    class A:
         def test(self):
             print("A --- test 方法")
 
         def demo(self):
             print("A --- demo 方法")
 
-
     class B:
-
         def test(self):
             print("B --- test 方法")
 
         def demo(self):
             print("B --- demo 方法")
 
-
     class C(B, A):
         """多继承可以让子类对象，同时具有多个父类的属性和方法"""
-        pass
 
+        pass
 
     # 创建子类对象
     c = C()
