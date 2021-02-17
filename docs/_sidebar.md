@@ -22,6 +22,7 @@
   * [模块](basic/11.md)
   * [文件](basic/12.md)
   * [异常](basic/13.md)
+  * [项目练习-飞机大战](basic/14.md)
 * **面向对象**
   * [类与对象](oo/1.md)
   * [三大特性](oo/2.md)
@@ -35,15 +36,25 @@
   * [Sklearn库](library/library_5.md)
 
 - **网络通信**
-
   - [基本概念](network/network_1.md)
   - [UDP](network/network_2.md)
   - [TCP](network/network_3.md)
-
-- [**多任务**](library/library_2.md)
-
+- **多任务**
   - [线程](multi/multi_2.md)
   - [进程](multi/multi_1.md)
   - [协程](multi/multi_3.md)
 
-  
+- **web服务器**
+  - [正则表达式](web/web_1.md)
+  - [http协议](web/web_2.md)
+  - [简单web服务器实现](web/web_3.md)
+  - [并发web服务器实现](web/web_4.md)
+  - [网络通信](web/web_5.md)
+
+- **Python高级语法**
+  - [GIL锁](senior/senior_1.md)
+  - [深拷贝和浅拷贝](senior/senior_2.md)
+  - [私有属性和名字重整、魔法属性和方法、上下文管理器](senior/senior_3.md)
+
+- **mini-web框架**
+  - [WSGI-mini-web框架](mini-web/mini-web_1.md)
