@@ -1,5 +1,7 @@
 ## 1. 进程以及状态
 
+> [程序练习](https://github.com/Nicolas-gaofeng/Salute_Python/tree/main/code/multi/jincheng)
+
 ### 1.1 进程
 
 程序：例如xxx.py这是程序，是一个静态的
@@ -267,9 +269,9 @@ True
 - Queue.get_nowait()：相当Queue.get(False)；
 - Queue.put(item,[block[, timeout]])：将item消息写入队列，block默认值为True；
 
-1）如果block使用默认值，且没有设置timeout（单位秒），消息列队如果已经没有空间可写入，此时程序将被阻塞（停在写入状态），直到从消息列队腾出空间为止，如果设置了timeout，则会等待timeout秒，若还没空间，则抛出"Queue.Full"异常；
+3）如果block使用默认值，且没有设置timeout（单位秒），消息列队如果已经没有空间可写入，此时程序将被阻塞（停在写入状态），直到从消息列队腾出空间为止，如果设置了timeout，则会等待timeout秒，若还没空间，则抛出"Queue.Full"异常；
 
-2）如果block值为False，消息列队如果没有空间可写入，则会立刻抛出"Queue.Full"异常；
+4）如果block值为False，消息列队如果没有空间可写入，则会立刻抛出"Queue.Full"异常；
 
 - Queue.put_nowait(item)：相当Queue.put(item, False)；
 
