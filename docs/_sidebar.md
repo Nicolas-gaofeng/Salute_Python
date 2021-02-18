@@ -53,8 +53,17 @@
 
 - **Python高级语法**
   - [GIL锁](senior/senior_1.md)
-  - [深拷贝和浅拷贝](senior/senior_2.md)
-  - [私有属性和名字重整、魔法属性和方法、上下文管理器](senior/senior_3.md)
-
+  - [上下文管理器](senior/senior_2.md)
+  - [元类、实现ORM](senior/senior_3.md)
+  
 - **mini-web框架**
-  - [WSGI-mini-web框架](mini-web/mini-web_1.md)
+  - [WSGI-mini-web框架](mini-web/mini-web_01.md)
+  - [添加路由、mysql功能](mini-web/mini-web_02.md)
+  - [添加log日志、路由支持正则](mini-web/mini-web_03.md)
+
+- **flask框架**
+  - [关于flask](flask/flask_01.md)
+  - [视图](flask/flask_02.md)
+  - [模板](flask/flask_03.md)
+  - [数据库](flask/flask_04.md)
+  - [测试与部署](flask/flask_05.md)

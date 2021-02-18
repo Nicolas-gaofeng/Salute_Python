@@ -1,3 +1,5 @@
+> [程序练习](https://github.com/Nicolas-gaofeng/Salute_Python/blob/main/code/python_web/python_web_03)
+
 ## Web静态服务器-1-显示固定的页面
 
 ```python

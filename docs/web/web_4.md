@@ -1,6 +1,8 @@
-## Web静态服务器-5-非堵塞模式
+> [程序练习](https://github.com/Nicolas-gaofeng/Salute_Python/blob/main/code/python_web/python_web_04)
 
-### 单进程非堵塞 模型
+## 1. Web静态服务器-5-非堵塞模式
+
+### 1.1 单进程非堵塞 模型
 
 ```python
 #coding=utf-8
@@ -52,7 +54,7 @@ if __name__ == '__main__':
     main()
 ```
 
-### web静态服务器-单进程非堵塞
+### 1.2 web静态服务器-单进程非堵塞
 
 ```python
 import time
@@ -182,9 +184,9 @@ if __name__ == "__main__":
     main()
 ```
 
-## Web静态服务器-6-epoll
+## 2. Web静态服务器-6-epoll
 
-### IO 多路复用
+### 2.1 IO 多路复用
 
 就是我们说的select，poll，epoll，有些地方也称这种IO方式为event driven IO。
 
@@ -192,7 +194,7 @@ select/epoll的好处就在于单个process就可以同时处理多个网络连�
 
 它的基本原理就是select，poll，epoll这个function会不断的轮询所负责的所有socket，当某个socket有数据到达了，就通知用户进程。
 
-### epoll简单模型
+### 2.2 epoll简单模型
 
 ```python
 import socket
@@ -269,7 +271,7 @@ while True:
                 del addresses[fd]
 ```
 
-#### 说明
+说明
 
 - EPOLLIN （可读）
 - EPOLLOUT （可写）
@@ -283,7 +285,7 @@ LT模式：当epoll检测到描述符事件发生并将此事件通知应用程�
 ET模式：当epoll检测到描述符事件发生并将此事件通知应用程序，应用程序必须立即处理该事件。如果不处理，下次调用epoll时，不会再次响应应用程序并通知此事件。
 ```
 
-### web静态服务器-epool
+### 2.3 web静态服务器-epool
 
 以下代码，支持http的长连接，即使用了`Content-Length`
 
@@ -423,7 +425,7 @@ if __name__ == "__main__":
     main()
 ```
 
-### 小总结
+**总结**
 
 I/O 多路复用的特点：
 
@@ -431,11 +433,11 @@ I/O 多路复用的特点：
 
 当然也可以多线程/多进程方式，一个连接过来开一个进程/线程处理，这样消耗的内存和进程切换页会耗掉更多的系统资源。 所以我们可以结合IO多路复用和多进程/多线程 来高性能并发，IO复用负责提高接受socket的通知效率，收到请求后，交给进程池/线程池来处理逻辑。
 
-### 参考资料
+参考资料
 
 - 如果想了解下epoll在Linux中的实现过程可以参考：http://blog.csdn.net/xiajun07061225/article/details/9250579
 
-## Web静态服务器-7-gevent版
+## 3. Web静态服务器-7-gevent版
 
 ```python
 from gevent import monkey
@@ -551,7 +553,7 @@ if __name__ == "__main__":
     main()
 ```
 
-## 知识扩展-C10K问题
+## 4. 知识扩展-C10K问题
 
 参考文章 :
 

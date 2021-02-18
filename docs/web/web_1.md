@@ -1,8 +1,10 @@
+> [程序练习](https://github.com/Nicolas-gaofeng/Salute_Python/blob/main/code/python_web/python_web_01)
+
 ## 1. 正则表达式概述
 
-### 思考
+**思考**
 
-### 场景1：在一个文件中，查找出itcast开头的语句
+场景1：在一个文件中，查找出itcast开头的语句
 
 测试文件
 
@@ -13,7 +15,7 @@ itheima ios
 itheima php
 ```
 
-### 场景：在一个文件中，找到含有itcast的语句
+场景：在一个文件中，找到含有itcast的语句
 
 测试文件
 
@@ -24,7 +26,7 @@ itheima ios
 itheima php
 ```
 
-### 场景：在一个文件中，找到邮箱为163或者126的所有邮件地址
+场景：在一个文件中，找到邮箱为163或者126的所有邮件地址
 
 ## 2. re模块操作
 
@@ -84,7 +86,7 @@ itcast
 |  \w  | 匹配单词字符，即a-z、A-Z、0-9、_ |
 |  \W  | 匹配非单词字符                   |
 
-### 示例1： .
+示例1： .
 
 ```python
 #coding=utf-8
@@ -109,7 +111,7 @@ too
 two
 ```
 
-### 示例2：[ ]
+示例2：[ ]
 
 ```python
 #coding=utf-8
@@ -162,7 +164,7 @@ Hello Python
 7Hello Python
 ```
 
-### 示例3：\d
+示例3：\d
 
 ```python
 #coding=utf-8
@@ -201,7 +203,7 @@ print(ret.group())
 嫦娥3号
 ```
 
-### 说明
+说明
 
 - 其他的匹配符参见后面章节的讲解
 
@@ -217,7 +219,7 @@ print(ret.group())
 |  {m}  | 匹配前一个字符出现m次                               |
 | {m,n} | 匹配前一个字符出现从m到n次                          |
 
-## 示例1：*
+示例1：*
 
 需求：匹配出，一个字符串第一个字母为大小字符，后面都是小写字母并且这些小写字母可有可无
 
@@ -243,7 +245,7 @@ Mnn
 Aabcdef
 ```
 
-## 示例2：+
+示例2：+
 
 需求：匹配出，变量名是否有效
 
@@ -270,7 +272,7 @@ for name in names:
 变量名 __name__ 符合要求
 ```
 
-## 示例3：?
+示例3：?
 
 需求：匹配出，0到99之间的数字
 
@@ -296,7 +298,7 @@ print(ret.group())
 0 # 这个结果并不是想要的，利用$才能解决
 ```
 
-## 示例4：{m}
+示例4：{m}
 
 需求：匹配出，8到20位的密码，可以是大小写英文字母、数字、下划线
 
@@ -318,10 +320,6 @@ print(ret.group())
 1ad12f23s34455ff66
 ```
 
-## 练一练
-
-### 题目1：匹配出163的邮箱地址，且@符号之前有4到20位，例如hello@163.com
-
 ## 5. 匹配开头结尾
 
 | 字符 | 功能           |
@@ -329,7 +327,7 @@ print(ret.group())
 |  ^   | 匹配字符串开头 |
 |  $   | 匹配字符串结尾 |
 
-## 示例1：$
+示例1：$
 
 需求：匹配163.com的邮箱地址
 
@@ -356,7 +354,7 @@ xiaoWang@163.comheihei 是符合规定的邮件地址,匹配后的结果是:xiao
 .com.xiaowang@qq.com 不符合要求
 ```
 
-#### 完善后
+完善后
 
 ```python
 email_list = ["xiaoWang@163.com", "xiaoWang@163.comheihei", ".com.xiaowang@qq.com"]
@@ -387,7 +385,7 @@ xiaoWang@163.comheihei 不符合要求
 | `(?P<name>)` | 分组起别名                       |
 |  (?P=name)   | 引用别名为name分组匹配到的字符串 |
 
-## 示例1：|
+示例1：|
 
 需求：匹配出0-100之间的数字
 
@@ -427,7 +425,7 @@ ret = re.match("[1-9]?\d$|100","100")
 print(ret.group())  # 100
 ```
 
-## 示例2：( )
+示例2：( )
 
 需求：匹配出163、126、qq邮箱
 
@@ -452,7 +450,7 @@ else:
     print("不是163、126、qq邮箱")  # 不是163、126、qq邮箱
 ```
 
-### 不是以4、7结尾的手机号码(11位)
+不是以4、7结尾的手机号码(11位)
 
 ```python
 import re
@@ -467,7 +465,7 @@ for tel in tels:
         print("%s 不是想要的手机号" % tel)
 ```
 
-### 提取区号和电话号码
+提取区号和电话号码
 
 ```python
 >>> ret = re.match("([^-]*)-(\d+)","010-12345678")
@@ -479,7 +477,7 @@ for tel in tels:
 '12345678'
 ```
 
-## 示例3：\
+示例3：\
 
 需求：匹配出`<html>hh</html>`
 
@@ -520,7 +518,7 @@ else:
 <html>hh</htmlbalabala> 这是一对不正确的标签
 ```
 
-## 示例4：\number
+示例4：\number
 
 需求：匹配出`<html><h1>www.itcast.cn</h1></html>`
 
@@ -546,7 +544,7 @@ for label in labels:
 <html><h1>www.itcast.cn</h2></html> 不符合要求
 ```
 
-## 示例5：`(?P<name>)` `(?P=name)`
+示例5：`(?P<name>)` `(?P=name)`
 
 需求：匹配出`<html><h1>www.itcast.cn</h1></html>`
 
@@ -562,7 +560,7 @@ ret = re.match(r"<(?P<name1>\w*)><(?P<name2>\w*)>.*</(?P=name2)></(?P=name1)>", 
 ret.group()
 ```
 
-### 注意：`(?P<name>)`和`(?P=name)`中的字母p大写
+注意：`(?P<name>)`和`(?P=name)`中的字母p大写
 
 运行结果：
 
@@ -570,7 +568,7 @@ ret.group()
 
 ## 7. re模块的高级用法
 
-## search
+search
 
 需求：匹配出文章阅读的次数
 
@@ -588,7 +586,7 @@ ret.group()
 '9999'
 ```
 
-## findall
+findall
 
 需求：统计出python、c、c++相应文章阅读的次数
 
@@ -606,7 +604,7 @@ print(ret)
 ['9999', '7890', '12345']
 ```
 
-## sub 将匹配到的数据进行替换
+sub 将匹配到的数据进行替换
 
 需求：将匹配到的阅读次数加1
 
@@ -651,7 +649,7 @@ python = 998
 python = 100
 ```
 
-### 练习
+练习
 
 ![img](https://gitee.com/zgf1366/pic_store/raw/master/img/20210217124159.png)
 
@@ -684,7 +682,7 @@ python = 100
 re.sub(r"<[^>]*>|&nbsp;|\n", "", test_str)
 ```
 
-## split 根据匹配进行切割字符串，并返回一个列表
+split 根据匹配进行切割字符串，并返回一个列表
 
 需求：切割字符串“info:xiaoZhang 33 shandong”
 
@@ -737,7 +735,7 @@ Python里数量词默认是贪婪的（在少数语言里也可能是默认非�
 >>>
 ```
 
-### 练一练
+练一练
 
 ![img](https://gitee.com/zgf1366/pic_store/raw/master/img/20210217124225.png)
 

@@ -1,10 +1,12 @@
+> [程序练习](https://github.com/Nicolas-gaofeng/Salute_Python/blob/main/code/python_web/python_web_05)
+
 ## 网络通信过程
 
 ### 1. 2台电脑的网络
 
 ![img](https://gitee.com/zgf1366/pic_store/raw/master/img/20210217124921.png)
 
-#### 说明
+说明
 
 > 1. 如果两台电脑之间通过网线连接是可以直接通信的，但是需要提前设置好ip地址以及网络掩码
 > 2. 并且ip地址需要控制在同一网段内，例如 一台为`192.168.1.1`另一台为`192.168.1.2`则可以进行通信
@@ -13,7 +15,7 @@
 
 ![img](https://gitee.com/zgf1366/pic_store/raw/master/img/20210217124930.png)
 
-#### 说明
+说明
 
 > 1. 当有多态电脑需要组成一个网时，那么可以通过集线器（Hub）将其链接在一起
 > 2. 一般情况下集线器的接口较少
@@ -23,7 +25,7 @@
 
 ![img](https://gitee.com/zgf1366/pic_store/raw/master/img/20210217124939.png)
 
-#### 说明
+说明
 
 > 1. 克服了集线器以广播发送数据的缺点，当需要广播的时候发送广播，当需要单播的时候又能够以单播的方式进行发送
 > 2. 它已经替代了之前的集线器
@@ -39,7 +41,7 @@
 
 ![img](https://gitee.com/zgf1366/pic_store/raw/master/img/20210217124956.png)
 
-#### 说明
+说明
 
 > 1. 在浏览器中输入一个网址时，需要将它先解析出ip地址来
 > 2. 当得到ip地址之后，浏览器以tcp的方式3次握手链接服务器
@@ -64,7 +66,7 @@
 
 ![img](https://gitee.com/zgf1366/pic_store/raw/master/img/20210217125019.png)
 
-#### 说明
+说明
 
 1. 当在家里用宽带链接上网时，会把电话线(今天很多地方都是光纤)---->调制解调制(简称猫)------->电脑等设备
 
