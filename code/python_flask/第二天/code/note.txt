@@ -1,0 +1,11 @@
+python2 字符串类型
+   str  "utf-8"  "gbk"
+   unicode
+
+
+a = "中国"   # str
+a = u"中国"   # unicode
+
+u"中国"  % "sa"
+
+ASCII  cannot decode \xxx\xx

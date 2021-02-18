@@ -1,0 +1,227 @@
+Role.query.all()
+Out[2]: [<db_demo.Role at 0x10388d190>, <db_demo.Role at 0x10388d310>]
+
+In [3]: li = Role.query.all()
+
+In [4]: li
+Out[4]: [<db_demo.Role at 0x10388d190>, <db_demo.Role at 0x10388d310>]
+
+In [5]: r = li[0]
+
+In [6]: type(r)
+Out[6]: db_demo.Role
+
+In [7]: r.name
+Out[7]: u'admin'
+
+In [8]: Role.query.first()
+Out[8]: <db_demo.Role at 0x10388d190>
+
+In [9]: r = Role.query.first()
+
+In [10]: r.name
+Out[10]: u'admin'
+
+#  根据主键id获取对象
+In [11]: r = Role.query.get(2)
+
+In [12]: r
+Out[12]: <db_demo.Role at 0x10388d310>
+
+In [13]: r.name
+Out[13]: u'stuff'
+
+In [14]:
+
+
+# 另一种查询方式
+In [15]: db.session.query(Role).all()
+Out[15]: [<db_demo.Role at 0x10388d190>, <db_demo.Role at 0x10388d310>]
+
+In [16]: db.session.query(Role).get(2)
+Out[16]: <db_demo.Role at 0x10388d310>
+
+In [17]: db.session.query(Role).first()
+Out[17]: <db_demo.Role at 0x10388d190>
+
+In [18]:
+
+In [18]: User.query.filter_by(name="wang")
+Out[18]: <flask_sqlalchemy.BaseQuery at 0x1038c90d0>
+
+In [19]: User.query.filter_by(name="wang").all()
+Out[19]: [<db_demo.User at 0x1038c87d0>]
+
+In [20]: User.query.filter_by(name="wang").first()
+Out[20]: <db_demo.User at 0x1038c87d0>
+
+In [21]: user = User.query.filter_by(name="wang").first()
+
+In [22]: user.name
+Out[22]: u'wang'
+
+In [23]: user.email
+Out[23]: u'wang@163.com'
+
+In [24]: User.query.filter_by(name="wang", role_id=1).first()
+Out[24]: <db_demo.User at 0x1038c87d0>
+
+In [25]: User.query.filter_by(name="wang", role_id=2).first()
+
+In [26]: user = User.query.filter_by(name="wang", role_id=2).first()
+
+In [27]: type(user)
+Out[27]: NoneType
+
+In [28]:
+
+
+In [28]: user = User.query.filter(User.name=="wang", User.role_id==1).first
+    ...: ()
+
+In [29]: user
+Out[29]: <db_demo.User at 0x1038c87d0>
+
+In [30]: user.name
+Out[30]: u'wang'
+
+In [31]: from sqlalchemy import or_
+
+In [32]: User.query.filter(or_(User.name=="wang", User.email.endswith("163.com")
+    ...: )).all()
+Out[32]: [<db_demo.User at 0x1038c87d0>, <db_demo.User at 0x1038ef310>]
+
+In [33]: li = User.query.filter(or_(User.name=="wang", User.email.endswith("163.
+    ...: com"))).all()
+
+In [34]: li[0].name
+Out[34]: u'wang'
+
+In [35]: li[1].name
+Out[35]: u'zhou'
+
+In [36]:
+
+
+# offset偏移  跳过几条
+In [36]: User.query.offset(2).all()
+Out[36]: [<db_demo.User at 0x1038c0950>, <db_demo.User at 0x1038ef310>]
+
+In [37]: li = User.query.offset(2).all()
+
+In [38]: li[0].name
+Out[38]: u'chen'
+
+In [39]: li[1].name
+Out[39]: u'zhou'
+
+In [40]:
+
+
+In [42]: li = User.query.offset(1).limit(2).all()
+
+In [43]: li
+Out[43]: [<db_demo.User at 0x1038fd990>, <db_demo.User at 0x1038c0950>]
+
+In [44]: li[0].name
+Out[44]: u'zhang'
+
+In [45]: li[1].name
+Out[45]: u'chen'
+
+In [46]:
+
+In [50]: User.query.order_by("-id").all()
+Out[50]:
+[<db_demo.User at 0x1038ef310>,
+ <db_demo.User at 0x1038c0950>,
+ <db_demo.User at 0x1038fd990>,
+ <db_demo.User at 0x1038c87d0>]
+
+In [51]:
+
+In [51]: li = User.query.order_by(User.id.desc()).all()
+
+In [52]: li
+Out[52]:
+[<db_demo.User at 0x1038ef310>,
+ <db_demo.User at 0x1038c0950>,
+ <db_demo.User at 0x1038fd990>,
+ <db_demo.User at 0x1038c87d0>]
+
+In [53]: li[0].name
+Out[53]: u'zhou'
+
+In [54]: li[3].name
+Out[54]: u'wang'
+
+In [55]:
+
+
+In [55]: from sqlalchemy import func
+
+In [56]: db.session.query(User.role_id, func.count(User.role_id)).group_by(User.role_i
+    ...: d)
+Out[56]: <flask_sqlalchemy.BaseQuery at 0x103a38050>
+
+In [57]: db.session.query(User.role_id, func.count(User.role_id)).group_by(User.role_i
+    ...: d).all()
+Out[57]: [(1L, 2L), (2L, 2L)]
+
+In [58]:
+
+
+In [61]: ro = Role.query.get(1)
+
+In [62]: type(ro)
+Out[62]: db_demo.Role
+
+In [63]: ro.users
+Out[63]: [<db_demo.User at 0x1038c87d0>, <db_demo.User at 0x1038ef310>]
+
+In [64]: ro.users[0].name
+Out[64]: u'wang'
+
+In [65]: ro.users[1].name
+Out[65]: u'zhou'
+
+In [66]:
+
+
+
+In [67]: user
+Out[67]: <db_demo.User at 0x1038c87d0>
+
+In [68]: user.role_id
+Out[68]: 1L
+
+In [69]: Role.query.get(user.role_id)
+Out[69]: <db_demo.Role at 0x10388d190>
+
+In [70]: user.role
+Out[70]: <db_demo.Role at 0x10388d190>
+
+In [71]: user.role.name
+Out[71]: u'admin'
+
+In [72]:
+
+
+# 更新
+In [14]: User.query.filter_by(name="zhou").update({"name": "python", "emai
+    ...: l": "python@itast.cn"})
+Out[14]: 1L
+
+In [15]: db.session.commit()
+
+In [16]:
+
+
+# 删除
+In [16]: user = User.query.get(3)
+
+In [17]: db.session.delete(user)
+
+In [18]: db.session.commit()
+
+In [19]:

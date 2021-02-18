@@ -1,0 +1,2 @@
+10.211.55.5 - - [21/Nov/2017:13:01:39 +0800] "GET /favicon.ico HTTP/1.0" 404 233 "http://10.211.55.5/carts/get_cart" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36"
+10.211.55.5 - - [21/Nov/2017:13:02:41 +0800] "GET /goods/get_goods HTTP/1.0" 200 14 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36"
